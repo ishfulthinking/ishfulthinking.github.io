@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ishfulthinking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <script src="files/index.js" type="text/javascript"></script>
+
+    <!-- Additional stylesheet and JavaScript for highlighting "code" resume summary -->
+    <link rel="stylesheet" href="files/highlightjs/styles/vs2015.css">
+    <script src="files/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- Additional files for favicon to work with multiple browsers/systems -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+	<div id="header">
+		Ishmael Perez
+    </div>
+    <div id="navcontainer">
+        <ul class="navbar">
+            <li><a href="#about">           <div id="aboutLink">About</div>     </a></li>
+            <li><a href="#experience">      <div id="experLink">Experience</div></a></li>
+            <li><a href="#coding">          <div id="codingLink">Coding</div>   </a></li>
+            <li><a href="#music">           <div id="musicLink">Music</div>     </a></li>
+            <li><a href="#art">             <div id="artLink">Art</div>         </a></li>
+            <li><a href="#contact">         <div id="contactLink">Contact</div> </a></li>
+        </ul>
+    </div>
+
+	<div id="about">
+        <h3>About</h3>
+        <div id="ish"></div>
+        <div id="aboutText">
+            <p>Hi, my name is Ishmael Perez. I'm a junior at Boston
+                University completing my B.A. in Computer Science.</p>
+            <p>Here's an at-a-glance summary of my work and other info:</p>
+            <pre><code class="java">// It's wrong to treat people as objects, so I make sure to treat myself with class
+public class Ish {
+    
+    String name = "Ishmael Perez";
+
+    public class Education {
+        String school = "Boston University";
+        String degreeInProgress = "B.A. in Computer Science";
+        String graduationDate = "May 2020";
+        float gpa = 3.64;
+    }
+
+    private class WorkExperience {
+        String jobTitle = "Technical Intern";
+        String [] tasks = { "Back end Apex development for process automation and data storage",
+                            "Front end Visualforce development for websites and interfaces for Siemens teams",
+                            "Maintenance of code quality by refactoring legacy code and creating robust test classes",
+                            "Data administration and tech support for employees around the world",
+                            "Commitment to going above and beyond" };
+        String startedDate = "September 2017";
+        String endedDate = "March 2019";
+    }
+
+    private class HelpfulLinks {
+        String email = "<a href="mailto:ishmaelkperez@gmail.com">ishmaelkperez@gmail.com</a>";
+        String resumeLink = "<a href="files/resume.pdf">https://ishfulthinking.com/files/resume.pdf</a>";
+        String githubLink = "<a href="https://github.com/ishfulthinking">https://github.com/ishfulthinking</a>";
+    }
+    
+    float hunger = Math.random();
+    if (hunger >= 0.6) {
+        try {
+            System.out.complain("I could really go for some gua bao right now");
+        }
+        catch (ArithmeticException bankAccountIsEmpty) {
+            stomach.grumble();
+        }
+    }
+}</code></pre>
+        </div>
+    </div>
+    
+	<div id="experience">
+    <div id="tada"></div>
+        <h3>Experience</h3>
+        <p>
+            <strong>Technical Intern <span style="color: gray">@ Siemens Energy</span><br></strong>
+            September 2018 - March 2019
+            <ul>
+                <li>Wrote back-end code in Salesforce's Apex language (similar to Java)
+                    to automate server actions like data processing, updating cases, and
+                    deactivating inactive users.</li>
+                <li>Wrote front-end code using Visualforce (similar to HTML) to
+                    create forms and pages for Siemens employees to input data.</li>
+                <li>Refactored legacy code to make it more efficient; examples include optimizing processes
+                    with SOQL (similar to SQL) queries to have a lower runtime.</li>
+            </ul>
+        </p>
+        <br>
+        <p>
+            <strong>Co-Founder and Membership Coordinator <span style="color: gray">@ <a href="https://www.qlatinx.org/" class="gray">QLatinx</a></span><br></strong>
+            June 2016 - October 2018
+            <ul>
+                <li>Co-founded nonprofit organization in response to Pulse nightclub tragedy to build
+                    community and bring awareness to LGBTQ and Latinx issues in central Florida.</li>
+                <li>Served on executive board by coordinating events such as fundraisers, health fairs, 
+                    workshops, and family events.</li>
+                <li>Created the Community Cocina monthly cooking class series and developed the classes' 
+                    cultural history curriculum.</li>
+            </ul>
+        </p>
+    </div>
+    
+	<div id="coding">
+        <h3>Coding</h3>
+        <p><a href="https://github.com/ishfulthinking">My GitHub account</a> has multiple projects
+        I've worked on, whether that's for fun, a school assignment, or simply to practice a new skill.</p>
+        <table>
+            <tr>
+                <td><a href="https://github.com/ishfulthinking/Dijkstra-Visual"><img src="media/dijkstra.PNG"></a></td>
+                <td><a href="https://github.com/ishfulthinking/fitbit-maritime"><img src="media/maritime.PNG"></a></td>
+                <td><a href="https://github.com/ishfulthinking/fitbit-rays"><img src="media/rays.png"></a></td>
+            </tr>
+        </table>
+        <p>Projects I've worked on include:</p>
+        <ul>
+            <li>A visualization of Dijkstra's algorithm using a spaceship and three.js's out-of-the-box GUI</li>
+            <li>Fitbit Ionic watch faces that give info at-a-glance, such as heart rate and goal progress</li>
+            <li>Websites like the one you're currently on!</li>
+        </ul>
+    </div>
+    
+	<div id="music">
+		<h3>Music</h3>
+        <p><a href="https://www.youtube.com/channel/UCK7K27XYAxnjxVoMtlfU4sg">My YouTube channel</a> has videos of my piano covers,
+        almost always learned by ear and arranged by me.</p>
+        <p>It's mostly video game music with some instrumental versions of pop songs thrown in, too.</p>
+        <table>
+            <tr>
+                <td><iframe id="frame" max-width="100%" max-height="100%" src="https://www.youtube.com/embed/MJXdaq_4Tm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+            </tr>
+            <tr>
+                <td><iframe id="frame" max-width="100%" max-height="100%" src="https://www.youtube.com/embed/YThcUGLvyeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+            </tr>
+        </table>
+    </div>
+    
+	<div id="art">
+		<h3>Art</h3>
+        <p><a href="https://ishfulthinking.tumblr.com/tagged/my-art">My Tumblr blog</a> has some of my art uploaded to it.</p>
+        <p>I like drawing on my TI-83 calculator and making illustrations. My "Si Se Puede" design was sold
+            as a t-shirt by QLatinx, the nonprofit grassroots organization I co-founded.</p>
+        <table>
+            <tr>
+                <td><a href="https://ishfulthinking.tumblr.com/post/177756466691/a-collection-of-calculator-art-of-me-and-my"><img src="media/calc.jpg"></a></td>
+                <td><a href="https://ishfulthinking.tumblr.com/post/178233459351/a-drawing-i-did-of-activist-dolores-huerta-in-the"><img src="media/sisepuede.png"></a></td>
+                <td><a href="https://ishfulthinking.tumblr.com/post/177756558736/evangelion-unit-01-aka-eva-unit-01-from-neon"><img src="media/eva.jpg"></a></td>
+            </tr>
+        </table>
+    </div>
+    
+	<div id="contact">
+		<h3>Contact</h3>
+        <p>You can email me at <a href="mailto:ishmaelkperez@gmail.com">ishmaelkperez@gmail.com</a>.</p>
+        <p>If you like my work or just want to help a broke college student, please consider 
+            donating by <a href="https://www.buymeacoffee.com/ishfulthinking">buying me a coffee</a>.</p>
+    </div>
+    
+    <a id="bubble" href="#contact" onclick="vanquishClippy();"></a>
+    <a id="clippy" href="#contact" onclick="vanquishClippy();"></a>
+</body>
+</html>
