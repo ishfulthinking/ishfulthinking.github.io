@@ -1,0 +1,93 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #F8B003;
+    color: black;
+}
+
+.container-fluid {
+    background-color: #F8B003;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+
+.navbar {
+    box-shadow: 0px 0px 10px rgba(17,17,17,0.2);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    padding-left: 12%;
+}
+
+.row {
+    padding: 3%;
+}
+
+.col.main {
+    background-color: white;
+    border-left: 1px solid rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 0 0 50px rgba(17,17,17,0.5);
+}
+
+#home {
+    padding-top: 20%;
+    background-image: url("media/bootstrap/pavement.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#homefilter {
+    background-color: black;
+    height: 100%;
+    display: inline-block;
+    overflow: auto;
+}
+  
+#hometext {
+    text-align: center;
+    position: relative;
+    padding-bottom: 5%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 0 2px 8px rgba(17,17,17,0.6);
+}
+
+img {
+    border: 4px solid white;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(17,17,17,0.2);
+}
+
+#cv {
+    color: white;
+    background-color: #F8B003;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    transition-duration: 0.3s;
+}
+#cv:hover {
+    background-color: darkgoldenrod;
+    transition-duration: 0.3s;
+}
+
+#photography {
+    background-color: whitesmoke;
+}
+
+#photodesc {
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+#contact {
+    background-color: #404040;
+}
