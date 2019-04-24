@@ -219,6 +219,7 @@ By now, your website should look like this:
 ![Progress pic 1](progress1.PNG)  
 
 <details><summary>and the code should look like this:</summary>
+<p>
 
 ```html
 <!DOCTYPE html>
@@ -350,6 +351,7 @@ By now, your website should look like this:
 
 </html>
 ```  
+</p>
 </details>
 
 As you can see from the photo, it looks kinda wack. So let's make it fancier using 
@@ -502,6 +504,7 @@ section in our HTML in another div:
 ```
 
 <details><summary>Our HTML should look like this:</summary>
+<p>
 
 ```html
 <!DOCTYPE html>
@@ -638,9 +641,11 @@ section in our HTML in another div:
 
 </html>
 ```  
+</p>
 </details>
 
 <details><summary>And our CSS should look like this:</summary>
+<p>
 
 ```css
 /* This is a comment. It doesn't affect the code and is helpful for organization. */
@@ -700,6 +705,7 @@ img {
     margin: 4%;
 }
 ```
+</p>
 </details>
 
 Now let's see the result:  
