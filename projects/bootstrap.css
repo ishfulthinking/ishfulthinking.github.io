@@ -2,11 +2,6 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    background-color: #F8B003;
-    color: black;
-}
-
 .container-fluid {
     background-color: #F8B003;
     padding-left: 10% !important;
@@ -75,7 +70,7 @@ img {
 }
 
 .thumbnail {
-    padding: 4%;
+    margin: 4%;
 }
 
 #contact {

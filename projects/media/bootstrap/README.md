@@ -27,7 +27,7 @@ who helps make building simpler by providing pre-built arches, doors, etc.
 After creating your file, copy and paste the following boilerplate text into it. 
 It's there so we have the files we need to use Bootstrap.  
 
-```(html)
+```html
 <!DOCTYPE html>
 <html>
 
@@ -65,7 +65,7 @@ In the ``<body>`` section is where we put the construction plans. Note that spac
 tabs, and anything inside a ``<!-- comment -->`` line comment don't affect your code, 
 so use them to organize your stuff. (Also, keep track of your opening and closing tags!)
 
-```(html)
+```html
 <body>
 
     <!-- Navbar (the thing at the top) -->
@@ -97,7 +97,7 @@ The navbar is always a little difficult to understand, but luckily, we can just
 copy paste the premade navbar code from the Bootstrap site into our page, right 
 below the navbar section we just made:  
 
-```(html)
+```html
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-light bg-light justify-content-center">
     
@@ -127,7 +127,7 @@ Now we have a navbar with a couple of links! Cool, huh?
 We need to make the stuff that the navbar links to. Under the about section we made, 
 add the following:  
 
-```(html)
+```html
 <!-- About section -->
 <div class="row" id="about"> <!-- Note: this id should match the href of the link in the navbar to link correctly -->
 
@@ -139,7 +139,7 @@ add the following:
         <h2>About Me</h2>
 
         <span class="align-middle">
-            <p>Talk about your self here. I'm sure you're a very interesting person!
+            <p>Talk about yourself here. I'm sure you're a very interesting person!
             </p>
 
             <p>Note that pressing enter 
@@ -160,11 +160,11 @@ ought to put a little stuff to show off our talents.
 For the sake of this tutorial, we'll pretend we're photographers (and if you actually 
 are one, then... you're doing great already!).  
 
-```(html)
+```html
 <!-- Photography section -->
 <div class="row" id="photography">
 
-    <div class="column-fluid" id="photodesc">
+    <div class="column-fluid">
 
         <h2>Photography</h2>
         <p>Here are some photos I've taken.</p>
@@ -180,7 +180,7 @@ Now we have an auto-expanding column where we can put a gallery. We'll build the
 photo gallery by using Bootstrap's built-in rows and columns grid system, which 
 has 12 "units" horizontally where columns can be placed.  
 
-```(html)
+```html
 <!-- Photo gallery -->
 
 <!-- top row -->
@@ -219,7 +219,7 @@ By now, your website should look like this:
 
 and the code should look like this:  
 
-```(html)
+```html
 <!DOCTYPE html>
 <html>
 
@@ -281,13 +281,20 @@ and the code should look like this:
                     <h2>About Me</h2>
 
                     <span class="align-middle">
-                        <p>Talk about your self here. I'm sure you're a very interesting person!
+                        <p>Lorem ipsum dolor sit amet, consectetur 
+                            adipiscing elit. Fusce gravida blandit leo, non ultricies 
+                            felis lacinia et. Nullam varius elit eu gravida consequat. 
+                            Morbi vitae diam metus. Phasellus placerat fringilla fringilla. 
+                            Curabitur ac lacus sed nisi vestibulum tempus eu vitae quam. 
+                            Vivamus laoreet nisi ac elit aliquet tempus. Sed in tempor sem.
                         </p>
-
-                        <p>Note that pressing enter 
-                        won't 
-                        put a line break. You either have to use a <br> line break to do that, or 
-                        start a new paragraph using new p tags.
+                        <p>Curabitur porttitor non nibh ac finibus. Donec finibus, 
+                            lacus ac elementum sagittis, velit tellus molestie sem, 
+                            vitae cursus massa dui in nisl. Vivamus et nisl odio. 
+                            Integer a sem sagittis, fermentum urna in, posuere libero. 
+                            Mauris congue libero tellus. Sed vulputate lobortis quam, 
+                            et auctor turpis faucibus ut. Donec aliquet nisl magna, 
+                            vitae ullamcorper diam viverra in.
                         </p>
                     </span>
                 </div>
@@ -297,43 +304,42 @@ and the code should look like this:
             <!-- Photography section -->
             <div class="row" id="photography">
 
-                <div class="column-fluid" id="photodesc">
+                <div class="column-fluid">
 
                     <h2>Photography</h2>
                     <p>Here are some photos I've taken.</p>
 
                     <!-- Photo gallery -->
 
+                    <!-- top row -->
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="thumbnail">
+                                <img src="photo1.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="thumbnail">
+                                <img src="photo2.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- bottom row -->
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="thumbnail">
+                                <img src="photo3.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="thumbnail">
+                                <img src="photo4.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-
-            <!-- top row -->
-            <div class="row">
-                <div class="col-6">
-                    <div class="thumbnail">
-                        <img src="photo1.jpg" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="thumbnail">
-                        <img src="photo2.jpg" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-
-            <!-- bottom row -->
-            <div class="row">
-                <div class="col-6">
-                    <div class="thumbnail">
-                        <img src="photo3.jpg" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="thumbnail">
-                        <img src="photo4.jpg" class="img-fluid">
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -348,7 +354,7 @@ As you can see from the photo, it looks kinda wack. So let's make it fancier usi
 CSS. Unlike HTML, CSS doesn't require boilerplate, so just open it and let's add 
 some stuff:  
 
-```(css)
+```css
 /* This is a comment. It doesn't affec the code and is helpful for organization. */
 
 /* Make the navbar links sliiide to their targets, instead of jumping: */
@@ -362,28 +368,255 @@ html {
     padding-left: 10% !important;
     padding-right: 10% !important;
 }
+/* Note that, above, the !important tag tells the browser to override the preset padding for the .container-fluid class. */
 
-/* Put a nice frame around all images on the page: */
+/* Put a nice frame and soft shadow around all images on the page: */
 img {
     border: 4px solid white;
     border-radius: 4px;
     box-shadow: 0px 4px 8px rgba(17,17,17,0.2);
 }
 
-/* Color the second section (photography): */
+/* Color the second section (photography) for contrast: */
 #photography {
     background-color: whitesmoke;
 }
 
 /* Space out the photos in our gallery a little: */
 .thumbnail {
-    padding: 4%;
+    margin: 4%;
 }
 ```
 
 And the final result is (imagine a drum roll here):  
 
-![Progress pic 1](progress2.PNG)  
+![Progress pic 2](progress2.PNG)  
 
-Voila! I'll add more on how to do on my personal website in the time to come.  
-Have a good one!  
+Cool, this website works, but it still has *a lot* of room for improvement. Let's 
+start editing both the HTML *and* CSS so that we can customize the existing Bootstrap 
+skeleton to our liking.  
+
+## Step 7: Customize Bootstrap elements in both HTML and CSS
+Here is where the difference between ``element``, ``.element``, and ``#element`` 
+becomes more important:  
+- ``element`` is a built-in tag, such as ``<img...>``, ``<li>`` (list item), or ``<table>``. It automatically comes with HTML, meaning it's not custom.
+- ``.element`` signifies the element is a custom class, like ``.container-fluid``. 
+Think of classes like a brand. They can be reused on multiple elements, and anytime 
+you create a new element with the class (``<div class="element">``) it automatically 
+gets all the class's defined attributes.
+    - Notice how all the ``<div class="thumbnail">``-labeled images in our photo 
+    gallery got the same ``4%`` padding? That's the class in action!
+- ``#element`` signifies the element has a custom ID, like in ``#photography``. An ID  
+is typically used only once and refers to a specific thing we defined. Otherwise, it 
+behaves exactly like a class.
+    - Note that the navbar link, ``<a href="#photography">``, will make the page 
+    look for the element with the ID "photography". The link wouldn't work correctly 
+    if there were multiple things with that label, as would happen in a class.  
+
+It's also handy to know the difference between ``padding`` and ``spacing``. Although 
+both put spacing around an element, they do it in different ways:  
+- ``padding`` is like the magma inside Earth. It surrounds the core and puts spacing 
+*inside* Earth, between its core and its surface.
+- ``spacing`` is like the atmosphere around Earth. It surrounds the Earth too, but it puts spacing *outside* Earth, between its surface and outer space.  
+
+OK, now back to what we were talking about. Let's add secondary classes to some of the 
+Bootstrap elements we used before, so we can use the original classes *in addition to* 
+customized ones.
+
+In our HTML, we used ``<div class="row">`` elements to separate our sections. Edit 
+them so they now say ``<div class="row section"...`` before the id of each ``div`` 
+(don't edit the rows we used in the photo gallery).
+
+Then, in the CSS, we'll add some lines that target only rows with the additional 
+class "section":
+
+```css
+/* Add some padding around the stuff inside the different sections of our page. */
+.row.section {
+    padding: 5%;
+}
+```
+
+We can use this trick of adding second classes to existing elements to add a shadow 
+around only our main content column, and not other columns (like the ones in the 
+photo gallery). Find the ``<div class="col">`` just below the ``container-fluid`` 
+div, and add the word "main" after "col". Then, in CSS, we can edit the ``.col {`` 
+line to ``.col.main {`` so only the main column is colored white -- the others will 
+be transparent, as Bootstrap intended:
+
+```css
+/* Color the main column background white: */
+/* ...and add a box-shadow shifted 0 right, 0 down, and spread over 50px: */
+.col.main {
+    background-color: white;
+    /* You can also edit the rgba values to make the shadow a different color or darker. */
+    box-shadow: 0 0 50px rgba(17,17,17,0.5);
+}
+```  
+
+Great! Now our spacing is fixed. While we're at it, let's add a shadow to the navbar. 
+We don't have to edit the HTML for this, just the CSS, since we're using the default 
+navbar.  
+
+```css
+/* Add a shadow shifted 4px downward and spread over 8px to the navbar. */
+.navbar {
+    box-shadow: 0px 4px 8px rgba(17,17,17,0.2);
+}
+```  
+
+You might notice that the navbar has also been flatly lying on the page. We can 
+make it sticky, i.e. it will scroll along with the user, by encasing the navbar 
+section in our HTML in another div:  
+
+```html
+<!-- Make the navbar "sticky" (sticks to top of screen) -->
+<div class="sticky-top">
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light justify-content-center">
+        
+        ...your stuff here...
+
+    </nav>
+
+</div>
+```
+
+Our HTML should look like this:  
+
+```html
+<!DOCTYPE html>
+<html>
+
+	<head>
+		...
+	</head>
+
+	<body>
+
+    <!-- Make the navbar "sticky" (sticks to top of screen) -->
+    <div class="sticky-top">
+        
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md navbar-light bg-light justify-content-center">
+            
+            <a class="navbar-brand d-flex w-50 mr-auto" href="#home">Your page's name!</a>
+
+            <!-- This button replaces the links list when in mobile. -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="nav navbar-nav mr-auto justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#photography">Photography</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+
+    <!-- Page content holder -->
+    <div class="container-fluid">
+        
+        <!-- Main column where stuff goes -->
+        <div class="col main">
+
+            <!-- About section -->
+            <div class="row section" id="about"> <!-- Note: this id should match the href of the link in the navbar to link correctly -->
+
+                <div class="col-3">
+                    <img src="selfie.jpg" class="img-fluid">
+                </div>
+
+                <div class="col-9">
+                    <h2>About Me</h2>
+
+                    <span class="align-middle">
+                        <p>Lorem ipsum dolor sit amet, consectetur 
+                            adipiscing elit. Fusce gravida blandit leo, non ultricies 
+                            felis lacinia et. Nullam varius elit eu gravida consequat. 
+                            Morbi vitae diam metus. Phasellus placerat fringilla fringilla. 
+                            Curabitur ac lacus sed nisi vestibulum tempus eu vitae quam. 
+                            Vivamus laoreet nisi ac elit aliquet tempus. Sed in tempor sem.
+                        </p>
+                        <p>Curabitur porttitor non nibh ac finibus. Donec finibus, 
+                            lacus ac elementum sagittis, velit tellus molestie sem, 
+                            vitae cursus massa dui in nisl. Vivamus et nisl odio. 
+                            Integer a sem sagittis, fermentum urna in, posuere libero. 
+                            Mauris congue libero tellus. Sed vulputate lobortis quam, 
+                            et auctor turpis faucibus ut. Donec aliquet nisl magna, 
+                            vitae ullamcorper diam viverra in.
+                        </p>
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Photography section -->
+            <div class="row section" id="photography">
+
+                <div class="column-fluid">
+
+                    <h2>Photography</h2>
+                    <p>Here are some photos I've taken.</p>
+
+                    <!-- Photo gallery -->
+
+                    <!-- top row -->
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="thumbnail">
+                                <img src="photo1.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="thumbnail">
+                                <img src="photo2.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- bottom row -->
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="thumbnail">
+                                <img src="photo3.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="thumbnail">
+                                <img src="photo4.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+
+</html>
+```
+
+Now let's see the result:  
+
+![Progress pic 3](progress3.PNG)  
+
+Lookin' good! And thanks to Bootstrap, it even looks good on smaller screens:  
+
+![Progress pic 3 (mobile)](progress3mobile.PNG)  
+
+In fact, this could be a finished site!  
+But if you want more, stay tuned for how to add a header section and a contact 
+section... coming soon!
