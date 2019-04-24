@@ -14,8 +14,8 @@ You'll also need a text editor like Visual Studio Code (which I use), Notepad++,
 or sublime.  
 
 ## Step 1: Create an HTML and CSS file in the same location
-The **HTML** is what holds the content of the page, like text, photos, and links.  
-The **CSS** is what styles the content of the page, so it has pretty colors and shadows.  
+**HTML** is what holds the content of the page, like text, photos, and links.  
+**CSS** is what styles the content of the page, so it has pretty colors and shadows.  
 **Bootstrap** is a framework that simplifies coding a website by providing tools 
 for making the structure and automatically adjusting for different browser sizes 
 (don't you hate when a website loads weird on your desktop vs your phone?).  
@@ -371,7 +371,7 @@ html {
 /* Note that, above, the !important tag tells the browser to override the preset padding for the .container-fluid class. */
 
 /* Color the main column background white: */
-.col.main {
+.col {
     background-color: white;
 }
 
