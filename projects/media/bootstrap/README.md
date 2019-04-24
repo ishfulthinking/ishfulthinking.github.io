@@ -1,6 +1,6 @@
 # How to code a simple website using Bootstrap  
 
-![Clair de Lune webpage](page.png)  
+![Clair de Lune webpage](page.PNG)  
 
 This guide will teach you how to code a website like the one above.  
 
@@ -215,7 +215,7 @@ has 12 "units" horizontally where columns can be placed.
 ## Step 6: Spiff it up using CSS
 By now, your website should look like this:  
 
-![Progress pic 1](progress1.png)  
+![Progress pic 1](progress1.PNG)  
 
 and the code should look like this:  
 
@@ -383,7 +383,7 @@ img {
 
 And the final result is (image a drum roll here):  
 
-![Progress pic 1](progress2.png)  
+![Progress pic 1](progress2.PNG)  
 
 Voila! I'll add more on how to do on my personal website in the time to come.  
 Have a good one!  
