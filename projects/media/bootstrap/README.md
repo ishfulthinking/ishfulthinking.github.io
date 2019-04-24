@@ -465,6 +465,17 @@ navbar.
 }
 ```  
 
+And let's bold the navbar's title (called "brand" by Bootstrap) and move it a 
+little to the right, so it aligns with the content column:  
+
+```css
+/* Bold the navbar's brand and put spacing on its left so it shifts right. */
+.navbar-brand {
+    font-weight: bold;
+    padding-left: 12%;
+}
+```
+
 You might notice that the navbar has also been flatly lying on the page. We can 
 make it sticky, i.e. it will scroll along with the user, by encasing the navbar 
 section in our HTML in another div:  
@@ -607,6 +618,67 @@ Our HTML should look like this:
 </body>
 
 </html>
+```  
+
+And our CSS should look like this:  
+
+```css
+/* This is a comment. It doesn't affect the code and is helpful for organization. */
+
+/* Make the navbar links sliiide to their targets, instead of jumping: */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add a shadow shifted 4px downward and spread over 8px to the navbar. */
+.navbar {
+    box-shadow: 0px 4px 8px rgba(17,17,17,0.2);
+}
+
+/* Bold the navbar's brand and put spacing on its left so it shifts right. */
+.navbar-brand {
+    font-weight: bold;
+    padding-left: 12%;
+}
+
+/* Color the background and add some space to the sides of the main column: */
+.container-fluid {
+    background-color: #F8B003;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+/* Note that, above, the !important tag tells the browser to override the preset 
+padding for the .container-fluid class. */
+
+/* Color the main column background white: */
+/* ...and add a box-shadow shifted 0 right, 0 down, and spread over 50px: */
+.col.main {
+    background-color: white;
+    /* You can also edit the rgba values to make the shadow a different color or darker. */
+    box-shadow: 0 0 50px rgba(17,17,17,0.5);
+}
+
+/* Add some padding around the stuff inside the different sections of our page. */
+.row.section {
+    padding: 5%;
+}
+
+/* Put a nice frame and soft shadow around all images on the page: */
+img {
+    border: 4px solid white;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(17,17,17,0.2);
+}
+
+/* Color the second section (photography) for contrast: */
+#photography {
+    background-color: whitesmoke;
+}
+
+/* Space out the photos in our gallery a little: */
+.thumbnail {
+    margin: 4%;
+}
 ```
 
 Now let's see the result:  
