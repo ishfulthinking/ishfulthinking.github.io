@@ -381,7 +381,7 @@ img {
 }
 ```
 
-And the final result is (image a drum roll here):  
+And the final result is (imagine a drum roll here):  
 
 ![Progress pic 1](progress2.PNG)  
 
