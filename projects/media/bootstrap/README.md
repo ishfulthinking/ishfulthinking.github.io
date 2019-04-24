@@ -370,6 +370,11 @@ html {
 }
 /* Note that, above, the !important tag tells the browser to override the preset padding for the .container-fluid class. */
 
+/* Color the main column background white: */
+.col.main {
+    background-color: white;
+}
+
 /* Put a nice frame and soft shadow around all images on the page: */
 img {
     border: 4px solid white;
