@@ -60,9 +60,8 @@
 			<div class="col main">
 
 				<!-- Greeting section -->
-				<div class="row" id="home">
-					<div id="homefilter"></div>
-					<div id="hometext">
+				<div class="row section" id="home">
+					<div class="bigtext">
 						<h1>Claire de Lune</h1>
 						<h4>Photography that shines.</h4>
 					</div>
@@ -70,7 +69,7 @@
 	
 
 				<!-- About section -->
-				<div class="row" id="about">
+				<div class="row section" id="about">
 					<div class="col-3">
 						<img src="media/bootstrap/clair.jpg" class="img-fluid">
 					</div>
@@ -93,18 +92,19 @@
 								vitae ullamcorper diam viverra in. Quisque consequat dui 
 								et erat pellentesque condimentum.
 							</p>
-							<button id="cv" type="button" onclick="window.location.href = 'files/bootstrap/cv.pdf'; ">Check out my CV</button>
+							<button id="cvbutton" type="button" onclick="window.location.href = 'files/bootstrap/cv.pdf'; ">Check out my CV</button>
 						</span>
 					</div>
 				</div>
 	
 
 				<!-- Photography section -->
-				<div class="row" id="photography">
+				<div class="row section" id="photography">
 					<div class="column-fluid" id="photodesc">
 						<h2>Photography</h2>
 						<p>Here are some photos I've taken.</p>
 
+                        <!-- Photo gallery -->
 						<div class="row">
 							<div class="col-4">
 								<div class="thumbnail">
@@ -145,8 +145,14 @@
 	
 
 				<!-- Contact section -->
-				<div class="row" id="contact">
-	
+				<div class="row section" id="contact">
+                    <div class="bigtext">
+                        <h1 class="text-center">Looking for a photo shoot?</h1>
+                        <p>Look no further. Contact me at <a href="mailto:#">claire@email.com</a> or call me at 123-456-7890.</p>
+                        <br>
+                        <p>Find me on the below platforms too:</p>
+                        <p><a href="#">Flickr</a> • <a href="#">LinkedIn</a> • <a href="#">Behance</a></p>
+                    </div>
 				</div>
 
 			</div>

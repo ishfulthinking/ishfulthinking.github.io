@@ -14,7 +14,7 @@ body {
 }
 
 .navbar {
-    box-shadow: 0px 0px 10px rgba(17,17,17,0.2);
+    box-shadow: 0px 4px 8px rgba(17,17,17,0.2);
 }
 
 .navbar-brand {
@@ -22,40 +22,30 @@ body {
     padding-left: 12%;
 }
 
-.row {
-    padding: 3%;
+.row.section {
+    padding: 5%;
 }
 
 .col.main {
     background-color: white;
-    border-left: 1px solid rgba(0,0,0,0.2);
-    border-right: 1px solid rgba(0,0,0,0.2);
     box-shadow: 0 0 50px rgba(17,17,17,0.5);
 }
 
 #home {
-    padding-top: 20%;
+    padding: 20%;
     background-image: url("media/bootstrap/pavement.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
 }
-
-#homefilter {
-    background-color: black;
-    height: 100%;
-    display: inline-block;
-    overflow: auto;
-}
   
-#hometext {
+.bigtext {
     text-align: center;
     position: relative;
-    padding-bottom: 5%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
     color: white;
     text-shadow: 0 2px 8px rgba(17,17,17,0.6);
 }
@@ -66,15 +56,16 @@ img {
     box-shadow: 0px 4px 8px rgba(17,17,17,0.2);
 }
 
-#cv {
+#cvbutton {
     color: white;
     background-color: #F8B003;
     padding: 8px;
     border: none;
     border-radius: 5px;
     transition-duration: 0.3s;
+    box-shadow: 0px 4px 8px rgba(17,17,17,0.2);
 }
-#cv:hover {
+#cvbutton:hover {
     background-color: darkgoldenrod;
     transition-duration: 0.3s;
 }
@@ -83,11 +74,10 @@ img {
     background-color: whitesmoke;
 }
 
-#photodesc {
-    padding-left: 4%;
-    padding-right: 4%;
+.thumbnail {
+    padding: 4%;
 }
 
 #contact {
-    background-color: #404040;
+    background-image: radial-gradient(#404040, #202020);
 }
