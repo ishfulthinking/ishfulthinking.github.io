@@ -54,12 +54,12 @@ It's there so we have the files we need to use Bootstrap.
 </html>
 ```  
 
-* The ``<head>`` section is the page's data and toolbox -- hence why you should 
-change the title to what you want, and make sure your CSS files has the right name. *  
+The ``<head>`` section holds the page's data and imported toolboxes (stylesheets).  
+Change the title to what you want, and make sure your CSS files have the right names/paths.  
 
 ## Step 2: Lay out the structure of the site using Bootstrap tags
 Bootstrap uses regular HTML tags like div, span, etc. but has built-in classes. 
-If we're using the metaphor from before, these are the walls and arches. 
+If we're using the metaphor from before, these are the pre-built walls and arches. 
 
 In the ``<body>`` section is where we put the construction plans. Note that spaces, 
 tabs, and anything inside a ``<!-- comment -->`` line comment don't affect your code, 
@@ -124,6 +124,7 @@ below the navbar section we just made:
 
 ## Step 4: About section
 Now we have a navbar with a couple of links! Cool, huh?  
+
 We need to make the stuff that the navbar links to. Under the about section we made, 
 add the following:  
 
@@ -217,7 +218,7 @@ By now, your website should look like this:
 
 ![Progress pic 1](progress1.PNG)  
 
-and the code should look like this:  
+<details><summary>and the code should look like this:</summary>
 
 ```html
 <!DOCTYPE html>
@@ -349,6 +350,7 @@ and the code should look like this:
 
 </html>
 ```  
+</details>
 
 As you can see from the photo, it looks kinda wack. So let's make it fancier using 
 CSS. Unlike HTML, CSS doesn't require boilerplate, so just open it and let's add 
@@ -433,7 +435,7 @@ them so they now say ``<div class="row section"...`` before the id of each ``div
 (don't edit the rows we used in the photo gallery).
 
 Then, in the CSS, we'll add some lines that target only rows with the additional 
-class "section":
+class "section":  
 
 ```css
 /* Add some padding around the stuff inside the different sections of our page. */
@@ -444,7 +446,7 @@ class "section":
 
 We can use this trick of adding second classes to existing elements to add a shadow 
 around only our main content column, and not other columns (like the ones in the 
-photo gallery). Find the ``<div class="col">`` just below the ``container-fluid`` 
+photo gallery). Find the ``<div class="col">`` tag just below the ``container-fluid`` 
 div, and add the word "main" after "col". Then, in CSS, we can edit the ``.col {`` 
 line to ``.col.main {`` so only the main column is colored white -- the others will 
 be transparent, as Bootstrap intended:
@@ -499,7 +501,7 @@ section in our HTML in another div:
 </div>
 ```
 
-Our HTML should look like this:  
+<details><summary>Our HTML should look like this:</summary>
 
 ```html
 <!DOCTYPE html>
@@ -636,8 +638,9 @@ Our HTML should look like this:
 
 </html>
 ```  
+</details>
 
-And our CSS should look like this:  
+<details><summary>And our CSS should look like this:</summary>
 
 ```css
 /* This is a comment. It doesn't affect the code and is helpful for organization. */
@@ -697,6 +700,7 @@ img {
     margin: 4%;
 }
 ```
+</details>
 
 Now let's see the result:  
 
