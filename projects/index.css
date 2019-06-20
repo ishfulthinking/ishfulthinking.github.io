@@ -1,0 +1,53 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.container-fluid {
+    background-color: #088BFF;;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+
+.navbar {
+    box-shadow: 0px 4px 8px rgba(17,17,17,0.2);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    padding-left: 10%;
+}
+
+
+.odd {
+    background-color: white;
+    padding: 2%;
+}
+
+.even {
+    background-color: whitesmoke;
+    padding: 2%;
+}
+
+.col.main {
+    background-color: white;
+    box-shadow: 0 0 50px rgba(17,17,17,0.5);
+}
+
+img {
+    border: 4px solid white;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(17,17,17,0.2);
+    
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -webkit-transition: opacity 0.5s ease-in-out;
+}
+
+img:hover {
+    opacity: 0.6;
+}
+
+.thumbnail {
+    margin: 4%;
+}

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Dijkstra Visualization</title>
+		<link rel="stylesheet" href="index.css" type="text/css">
+
+		<!-- Bootstrap files -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!-- three.js files -->
+        <script src="https://threejs.org/build/three.js"></script>
+        <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+        <script src="https://threejs.org/examples/js/libs/dat.gui.min.js"></script>
+        <script src="https://threejs.org/examples/js/loaders/OBJLoader.js"> </script>
+        <script src="https://threejs.org/examples/js/loaders/MTLLoader.js"> </script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"> </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"> </script>
+
+        <!-- The actual Dijkstra code -->
+        <script>
+            "use strict";
+            
+            let container;
+            let renderer, scene, camera, controls;
+            let lineStartToA, lineStartToB, lineAToB, lineAToC, lineBToD, lineBToC, lineCToD, lineCToFinish, lineDToFinish;
+            let weightA, weightB, weightC, weightD, weightFinish;
+            let textA, textB, textC, textD, textFinish;
+            let text, textLabels = [];
+            let dijkstraStarted = false, dummy = 1;
+        
+            function mainFunction() {
+                container = document.getElementById('container');
+
+                renderer = new THREE.WebGLRenderer( {antialias: true} );
+                renderer.setSize(800, 600);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                renderer.setClearColor(0x4286f4, 1);
+                container.appendChild(renderer.domElement);
+        
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 1000);
+                camera.position.set(0, 50, 170);
+                scene.add(camera);
+                let controls = new THREE.OrbitControls(camera, renderer.domElement);
+                controls.addEventListener("change", render, false);
+        
+                buildAmbience();
+                buildShipAndPlanets();
+                buildBases();
+                buildGUI();
+                drawLines();
+                placeLabels();
+        
+                window.addEventListener('resize', resize, false);
+                render();
+            }
+        
+            // Lighting and skybox
+            function buildAmbience() {
+                let ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.2);
+                scene.add(ambientLight);
+                let pointLight = new THREE.PointLight(0xFFFFFF, 0.6);
+                pointLight.position.set(-125, 100, -20);
+                scene.add(pointLight);
+        
+                let loader = new THREE.CubeTextureLoader();
+                loader.setPath("galaxy/");
+                let textureCube = loader.load(["posx.jpg", "negx.jpg",
+                                                "posy.jpg", "negy.jpg",
+                                                "posz.jpg", "negz.jpg"]);
+                textureCube.mapping = THREE.CubeReflectionMapping;      
+                scene.background = textureCube;
+            }
+        
+            function buildShipAndPlanets() {
+                let shipLoader = new THREE.MTLLoader();
+                shipLoader.load("ship.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("ship.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(-80, 1, 0);
+                        mesh.rotation.y = -Math.PI / 2;
+                    })
+                });
+                
+                let planetALoader = new THREE.MTLLoader();
+                planetALoader.load("meteorHalf.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("meteorHalf.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(-40, -5, -40);
+                        mesh.scale.set(1.5, 1.5, 1.5);
+                        mesh.rotation.z = Math.PI;
+                    })
+                });
+                let planeGeo = new THREE.PlaneGeometry(3, 3);
+                let textureA = new THREE.TextureLoader().load("bases/A.jpg");
+                let materialA = new THREE.MeshBasicMaterial( { side: THREE.DoubleSide, map: textureA });
+                let planeA = new THREE.Mesh( planeGeo, materialA );
+                planeA.position.set(-40, -4.5, -40);
+                planeA.rotation.x = -Math.PI / 2;
+                planeA.scale.set(3, 3, 3);
+                scene.add( planeA );
+        
+                let planetBLoader = new THREE.MTLLoader();
+                planetBLoader.load("meteorHalf.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("meteorHalf.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(-40, -5, 40);
+                        mesh.scale.set(1.5, 1.5, 1.5);
+                        mesh.rotation.z = Math.PI;
+                    })
+                });
+                let geoB = new THREE.PlaneGeometry(3, 3);
+                let textureB = new THREE.TextureLoader().load("bases/B.jpg");
+                let materialB = new THREE.MeshBasicMaterial( { side: THREE.DoubleSide, map: textureB });
+                let planeB = new THREE.Mesh( planeGeo, materialB );
+                planeB.position.set(-40, -4.5, 40);
+                planeB.rotation.x = -Math.PI / 2;
+                planeB.scale.set(3, 3, 3);
+                scene.add( planeB );
+        
+                let planetDLoader = new THREE.MTLLoader();
+                planetDLoader.load("meteorHalf.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("meteorHalf.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(40, -5, -40);
+                        mesh.scale.set(1.5, 1.5, 1.5);
+                        mesh.rotation.z = Math.PI;
+                    })
+                });
+                let textureD = new THREE.TextureLoader().load("bases/C.jpg");
+                let materialD = new THREE.MeshBasicMaterial( { side: THREE.DoubleSide, map: textureD });
+                let planeD = new THREE.Mesh( planeGeo, materialD );
+                planeD.position.set(40, -4.5, -40);
+                planeD.rotation.x = -Math.PI / 2;
+                planeD.scale.set(3, 3, 3);
+                scene.add( planeD );
+        
+                let planetELoader = new THREE.MTLLoader();
+                planetELoader.load("meteorHalf.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("meteorHalf.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(40, -5, 40);
+                        mesh.scale.set(1.5, 1.5, 1.5);
+                        mesh.rotation.z = Math.PI;
+                    })
+                });
+                let geoE = new THREE.PlaneGeometry(3, 3);
+                let textureE = new THREE.TextureLoader().load("bases/D.jpg");
+                let materialE = new THREE.MeshBasicMaterial( { side: THREE.DoubleSide, map: textureE });
+                let planeE = new THREE.Mesh( planeGeo, materialE );
+                planeE.position.set(40, -4.5, 40);
+                planeE.rotation.x = -Math.PI / 2;
+                planeE.scale.set(3, 3, 3);
+                scene.add( planeE );
+            }
+        
+            // Build the start and end points and their decorations.
+            function buildBases() {
+                let startBaseLoader = new THREE.MTLLoader();
+                startBaseLoader.load("meteorHalf.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("meteorHalf.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(-90, -2, 0);
+                        mesh.scale.set(4, 4, 4);
+                        mesh.rotation.z = Math.PI;
+                    })
+                });
+        
+                let stationLoader = new THREE.MTLLoader();
+                stationLoader.load("station.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("station.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(-90, -1.7, 5);
+                        mesh.scale.set(2, 2, 2);
+                    })
+                });
+        
+                let smallSatelliteLoader = new THREE.MTLLoader();
+                smallSatelliteLoader.load("satelliteDish.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("satelliteDish.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(-100, -1.7, -9);
+                        mesh.scale.set(2, 2, 2);
+                        mesh.rotation.y = -3 * Math.PI / 4;
+                    })
+                });
+        
+                let finishBaseLoader = new THREE.MTLLoader();
+                finishBaseLoader.load("meteorHalf.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("meteorHalf.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(90, -2, 0);
+                        mesh.scale.set(6,6,6);
+                        mesh.rotation.z = Math.PI;
+                    })
+                });
+                
+                let finishPlatformLoader = new THREE.MTLLoader();
+                finishPlatformLoader.load("metalTile.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("metalTile.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(88, -2, -10);
+                        mesh.scale.set(2, 2, 2);
+                    })
+                });
+        
+                let bigSatelliteLoader = new THREE.MTLLoader();
+                bigSatelliteLoader.load("satelliteDishLarge.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("satelliteDishLarge.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(100, -2, -20);
+                        mesh.scale.set(2, 2, 2);
+                        mesh.rotation.y = Math.PI / 4;
+                    })
+                });
+        
+                let corridorLoader = new THREE.MTLLoader();
+                corridorLoader.load("corridor.mtl", function(materials) {
+                    materials.preload();
+                    let objLoader = new THREE.OBJLoader();
+                    objLoader.setMaterials(materials);
+        
+                    objLoader.load("corridor.obj", function(mesh) {
+                        scene.add(mesh);
+                        mesh.position.set(90, -2, -7);
+                        mesh.scale.set(3, 2, 2);
+                        mesh.rotation.y = Math.PI / 2;
+                    })
+                });
+                
+            }
+        
+            let lineMaterial = new THREE.LineDashedMaterial( {
+                    color: 0xFFFFFF, dashSize: 3, gapSize: 1, } );
+            // Draw the dashed lines that connect landing spots. The lines are global so
+            // that we can change their colors.
+            function drawLines() {
+                let lineStartToAGeo = new THREE.Geometry();
+                lineStartToAGeo.vertices.push(new THREE.Vector3( -80, 0, 0) );
+                lineStartToAGeo.vertices.push(new THREE.Vector3( -40, 0, -40) );
+                lineStartToAGeo.computeLineDistances();
+                lineStartToA = new THREE.Line( lineStartToAGeo, lineMaterial );
+                scene.add(lineStartToA);
+        
+                let lineStartToBGeo = new THREE.Geometry();
+                lineStartToBGeo.vertices.push(new THREE.Vector3( -80, 0, 0) );
+                lineStartToBGeo.vertices.push(new THREE.Vector3( -40, 0, 40) );
+                lineStartToBGeo.computeLineDistances();
+                lineStartToB = new THREE.Line( lineStartToBGeo, lineMaterial );
+                scene.add(lineStartToB);
+        
+                let lineAToBGeo = new THREE.Geometry();
+                lineAToBGeo.vertices.push(new THREE.Vector3( -40, 0, -40) );
+                lineAToBGeo.vertices.push(new THREE.Vector3( -40, 0, 40) );
+                lineAToBGeo.computeLineDistances();
+                lineAToB = new THREE.Line( lineAToBGeo, lineMaterial );
+                scene.add(lineAToB);
+        
+                let lineAToCGeo = new THREE.Geometry();
+                lineAToCGeo.vertices.push(new THREE.Vector3( -40, 0, -40) );
+                lineAToCGeo.vertices.push(new THREE.Vector3( 40, 0, -40) );
+                lineAToCGeo.computeLineDistances();
+                lineAToC = new THREE.Line( lineAToCGeo, lineMaterial );
+                scene.add(lineAToC);
+        
+                let lineBToCGeo = new THREE.Geometry();
+                lineBToCGeo.vertices.push(new THREE.Vector3( -40, 0, 40) );
+                lineBToCGeo.vertices.push(new THREE.Vector3( 40, 0, -40) );
+                lineBToCGeo.computeLineDistances();
+                lineBToC = new THREE.Line( lineBToCGeo, lineMaterial );
+                scene.add(lineBToC);
+        
+                let lineBToDGeo = new THREE.Geometry();
+                lineBToDGeo.vertices.push(new THREE.Vector3( -40, 0, 40) );
+                lineBToDGeo.vertices.push(new THREE.Vector3( 40, 0, 40) );
+                lineBToDGeo.computeLineDistances();
+                lineBToD = new THREE.Line( lineBToDGeo, lineMaterial );
+                scene.add(lineBToD);
+        
+                let lineCToDGeo = new THREE.Geometry();
+                lineCToDGeo.vertices.push(new THREE.Vector3( 40, 0, -40) );
+                lineCToDGeo.vertices.push(new THREE.Vector3( 40, 0, 40) );
+                lineCToDGeo.computeLineDistances();
+                lineCToD = new THREE.Line( lineCToDGeo, lineMaterial );
+                scene.add(lineCToD);
+        
+                let lineCToFinishGeo = new THREE.Geometry();
+                lineCToFinishGeo.vertices.push(new THREE.Vector3( 40, 0, -40) );
+                lineCToFinishGeo.vertices.push(new THREE.Vector3( 80, 0, 0) );
+                lineCToFinishGeo.computeLineDistances();
+                lineCToFinish = new THREE.Line( lineCToFinishGeo, lineMaterial );
+                scene.add(lineCToFinish);
+        
+                let lineDToFinishGeo = new THREE.Geometry();
+                lineDToFinishGeo.vertices.push(new THREE.Vector3( 40, 0, 40) );
+                lineDToFinishGeo.vertices.push(new THREE.Vector3( 80, 0, 0) );
+                lineDToFinishGeo.computeLineDistances();
+                lineDToFinish = new THREE.Line( lineDToFinishGeo, lineMaterial );
+                scene.add(lineDToFinish);
+            }
+        
+            // Create the actual text label as an HTML element and position it in 3D space.
+            function createTextLabel() {
+                let div = document.createElement('div');
+                div.className = 'text-label';
+                div.style.position = 'absolute';
+                div.style.width = 100;
+                div.style.height = 100;
+                div.innerHTML = "hi!";
+                div.style.top = -1000;
+                div.style.left = -1000;
+        
+                return {
+                    element: div,
+                    parent: false,
+                    position: new THREE.Vector3(0,0,0),
+                    setHTML: function(html) {
+                        this.element.innerHTML = html;
+                    },
+                    setParent: function(threejsobj) {
+                        parent = threejsobj;
+                    },
+                    updatePosition: function() {
+                        if (parent)
+                            this.position.copy(parent.position);
+                        let coords2d = this.get2DCoords(this.position, camera);
+                        this.element.style.left = coords2d.x + 'px';
+                        this.element.style.top = coords2d.y + 'px';
+                    },
+                    get2DCoords: function(position, camera) {
+                        let vector = position.project(camera);
+                        vector.x = (vector.x + 1)/2 * window.innerWidth;
+                        vector.y = -(vector.y - 1)/2 * window.innerHeight + 50;
+                        return vector;
+                    }
+            };
+            }
+        
+            // Place the labels for each landing point. These will display the weights.
+            function placeLabels() {
+                let geometry = new THREE.SphereGeometry( 2, 2, 2 );
+                let material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+                
+                let meshA = new THREE.Mesh(geometry, material);
+                meshA.position.set(-40, 0, -40);
+                meshA.updateMatrix();
+                meshA.matrixAutoUpdate = false;
+                scene.add(meshA);
+                    textA = createTextLabel();
+                    textA.setHTML("A");
+                    textA.setParent(meshA);
+                    textLabels.push(textA);
+                    container.appendChild(textA.element);
+        
+                let meshB = new THREE.Mesh(geometry, material);
+                meshB.position.set(-40, 0, 40);
+                meshB.updateMatrix();
+                meshB.matrixAutoUpdate = false;
+                scene.add(meshB);
+                    textB = createTextLabel();
+                    textB.setHTML("B");
+                    textB.setParent(meshB);
+                    textLabels.push(textB);
+                    container.appendChild(textB.element);
+        
+                let meshC = new THREE.Mesh(geometry, material);
+                meshC.position.set(40, 0, -40);
+                meshC.updateMatrix();
+                meshC.matrixAutoUpdate = false;
+                scene.add(meshC);
+                    textC = createTextLabel();
+                    textC.setHTML("C");
+                    textC.setParent(meshC);
+                    textLabels.push(textC);
+                    container.appendChild(textC.element);
+        
+                let meshD = new THREE.Mesh(geometry, material);
+                meshD.position.set(40, 0, 40);
+                meshD.updateMatrix();
+                meshD.matrixAutoUpdate = false;
+                scene.add(meshD);
+                    textD = createTextLabel();
+                    textD.setHTML("D");
+                    textD.setParent(meshD);
+                    textLabels.push(textD);
+                    container.appendChild(textD.element);
+        
+                let meshFinish = new THREE.Mesh(geometry, material);
+                meshFinish.position.set(80, 0, 0);
+                meshFinish.updateMatrix();
+                meshFinish.matrixAutoUpdate = false;
+                scene.add(meshFinish);
+                    textFinish = createTextLabel();
+                    textFinish.setHTML("Finish");
+                    textFinish.setParent(meshFinish);
+                    textLabels.push(textFinish);
+                    container.appendChild(textFinish.element);
+        
+                let renderLabels = function() {
+                    for(let i = 0; i < textLabels.length; i++)
+                        textLabels[i].updatePosition();
+                    
+                    renderer.render(scene, camera);
+                }
+        
+                renderLabels();
+        
+                function animate() {
+                    requestAnimationFrame(animate);
+                    renderLabels();
+                }
+        
+                animate();
+            }
+        
+            // Update the text labels, displaying "Infinity" if they're at max value.
+            function updateLabels() {
+                if (weightA === Number.Infinity) textA.setHTML("Infinity");
+                else textA.setHTML(weightA);
+                if (weightB === Number.Infinity) textB.setHTML("Infinity");
+                else textB.setHTML(weightB);
+                if (weightC === Number.Infinity) textC.setHTML("Infinity");
+                else textC.setHTML(weightC);
+                if (weightD === Number.Infinity) textD.setHTML("Infinity");
+                else textD.setHTML(weightD);
+                if (weightFinish === Number.Infinity) textFinish.setHTML("Infinity");
+                else textFinish.setHTML(weightFinish);
+            }
+        
+            // Build the GUI that controls path weights and has the button to do the algorithm.
+            function buildGUI() {
+                let myGUI = function() {
+                    this.StartToA = 5;
+                    this.StartToB = 10;
+                    this.AToB = 4;
+                    this.AToC = 11;
+                    this.BToC = 8;
+                    this.BToD = 3;
+                    this.CToD = 7;
+                    this.CToFinish = 9;
+                    this.DToFinish = 6;
+                    this.doDijkstra = function() {
+                        doDijkstra();
+                    };
+                };
+        
+                let updateGUI = function() {
+                text = new myGUI();
+                let gui = new dat.GUI();
+                gui.add(text, 'StartToA', 0, 20);
+                gui.add(text, 'StartToB', 0, 20);
+                gui.add(text, 'AToB', 0, 20);
+                gui.add(text, 'AToC', 0, 20);
+                gui.add(text, 'BToC', 0, 20);
+                gui.add(text, 'BToD', 0, 20);
+                gui.add(text, 'CToD', 0, 20);
+                gui.add(text, 'CToFinish', 0, 20);
+                gui.add(text, 'DToFinish', 0, 20);
+                gui.add(text, 'doDijkstra');
+                };
+        
+                updateGUI();
+            }
+        
+            function doDijkstra() {
+                if (dijkstraStarted) return;
+                dijkstraStarted = true;
+                resetLines();
+        
+                // Set all weights to infinity. Placing them in an array makes updating easier.
+                let weights = [weightA, weightB, weightC, weightD, weightFinish];
+                weights.forEach(function(item, index, array) { item = Number.Infinity; });
+                //updateLabels();
+        
+                let problem = {
+                    start: { A: text.StartToA, B: text.StartToB },
+                    A: { B: text.AToB, C: text.AToC },
+                    B: { A: text.AToB, C: text.BToC, D: text.BToD },
+                    C: { D: text.CToD, finish: text.CToFinish },
+                    D: { C: text.CToD, finish: text.DToFinish },
+                    finish: {}
+                };
+                
+                const lowestCostNode = (costs, processed) => {
+                    return Object.keys(costs).reduce((lowest, node) => {
+                        if (lowest === null || costs[node] < costs[lowest]) {
+                            if (!processed.includes(node)) {
+                                lowest = node;
+                            }
+                        }
+                        return lowest;
+                    }, null);
+                };
+        
+                const dijkstra = (graph) => {
+        
+                    // track lowest cost to reach each node
+                    const costs = Object.assign({finish: Infinity}, graph.start);
+        
+                    // track paths
+                    const parents = {finish: null};
+                    for (let child in graph.start) {
+                        parents[child] = 'start';
+                    }
+        
+                    // track nodes that have already been processed
+                    const processed = [];
+        
+                    let node = lowestCostNode(costs, processed);
+        
+                    while (node) {
+                        let cost = costs[node];
+                        let children = graph[node];
+                        for (let n in children) {
+                            let newCost = cost + children[n];
+                            if (!costs[n]) {
+                                costs[n] = newCost;
+                                parents[n] = node;
+                                weights[n] = newCost;
+                            }
+        
+                            if (costs[n] > newCost) {
+                                costs[n] = newCost;
+                                parents[n] = node;
+                                weights[n] = newCost;
+                            }
+                            updateLabels();
+                            setTimeout(console.log, 1000, "Current n is " + n + " weighing " + weights[n]);
+                        }
+                        for (let n in children) {
+                            weights[n] = parents[n];
+                        }
+                        updateLabels();
+                        processed.push(node);
+                        node = lowestCostNode(costs, processed);
+                    }
+        
+                    let optimalPath = ['finish'];
+                    let parent = parents.finish;
+                    while (parent) {
+                        optimalPath.push(parent);
+                        parent = parents[parent];
+                    }
+                    optimalPath.reverse();
+        
+                    const results = {
+                        distance: costs.finish,
+                        path: optimalPath
+                    };
+        
+                    for (let i = 0; i < optimalPath.length - 1; i++)
+                    {
+                        highlightLines(optimalPath[i], optimalPath[i+1]);
+                    }
+        
+                    return results;
+                    };
+        
+                console.log(dijkstra(problem));
+        
+                dijkstraStarted = false;
+            }
+        
+            function resetLines() {
+                lineStartToA.material = lineMaterial;
+                lineStartToB.material = lineMaterial;
+                lineAToB.material = lineMaterial;
+                lineAToC.material = lineMaterial;
+                lineBToC.material = lineMaterial;
+                lineBToD.material = lineMaterial;
+                lineCToD.material = lineMaterial;
+                lineCToFinish.material = lineMaterial;
+                lineDToFinish.material = lineMaterial;
+            }
+        
+            // We declare this material globally so we can reuse it.
+            let selectedLine = new THREE.LineBasicMaterial( { color: 0xFFCC66 } );
+            // And then just take the current checkpoint and the next to pick which line gets highlighted.
+            function highlightLines(currOne, nextOne) {
+                if (currOne == "start" && nextOne == "A")
+                    lineStartToA.material = selectedLine;
+                else if (currOne == "start" && nextOne == "B")
+                    lineStartToB.material = selectedLine;
+                else if ( (currOne == "A" && nextOne == "B") || (currOne == "B" && nextOne == "A") )
+                    lineAToB.material = selectedLine;
+                else if (currOne == "A" && nextOne == "C")
+                    lineAToC.material = selectedLine;
+                else if (currOne == "B" && nextOne == "C")
+                    lineBToC.material = selectedLine;
+                else if (currOne == "B" && nextOne == "D")
+                    lineBToD.material = selectedLine;
+                else if ( (currOne == "C" && nextOne == "D") || (currOne == "D" && nextOne == "C") )
+                    lineCToD.material = selectedLine;
+                else if (currOne == "C" && nextOne == "finish")
+                    lineCToFinish.material = selectedLine;
+                else if (currOne == "D" && nextOne == "finish")
+                    lineDToFinish.material = selectedLine;
+            }
+        
+            function render() {
+                renderer.render(scene, camera);
+                container.appendChild(renderer.domElement);
+            }
+        
+            function resize() {
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+            }
+        </script>
+	</head>
+
+	<body onload="mainFunction()">
+
+		<div class="sticky-top">
+			
+			<nav class="navbar navbar-expand-md navbar-light bg-light justify-content-center">
+				
+				<a class="navbar-brand d-flex w-50 mr-auto" href="#home">Projects by ishfulthinking</a>
+
+				<!-- This button replaces the links list when in mobile. -->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- Navbar links -->
+				<div class="collapse navbar-collapse" id="nav">
+					<ul class="nav navbar-nav mr-auto justify-content-end">
+						<li class="nav-item">
+							<a class="nav-link" href="https://ishfulthinking.com/projects/list.html">Project List</a>
+						</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://ishfulthinking.com">Main Page</a>
+                        </li>
+					</ul>
+				</div>
+			</nav>
+
+        </div>
+        
+        <!-- It's Dijkstra time, y'all -->
+		<div class="container-fluid">
+
+			<div class="col main">
+
+				<div class="row section" id="list">
+					<div class="section">
+                        <h1>Dijkstra's Algorithm in three.js</h1>
+
+                        <p>
+                            Here's a visualization of Dijkstra's algorithm using three.js. You adjust the weights of each edge 
+                            (i.e. the line between two nodes, or "bases" in this case) with the sliders on the GUI to the right.
+                        </p>
+                        <p>
+                            You can <a href="https://github.com/ishfulthinking/Dijkstra-Visual">find the code here</a>.
+                        </p>
+                        
+                        <div id="container"></div>
+
+					</div>
+				</div>
+
+			</div>
+        </div>
+        
+
+	</body>
+
+</html>
