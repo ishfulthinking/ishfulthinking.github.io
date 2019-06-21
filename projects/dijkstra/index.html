@@ -82,12 +82,12 @@
         
             function buildShipAndPlanets() {
                 let shipLoader = new THREE.MTLLoader();
-                shipLoader.load("ship.mtl", function(materials) {
+                shipLoader.load("models/ship.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("ship.obj", function(mesh) {
+                    objLoader.load("models/ship.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(-80, 1, 0);
                         mesh.rotation.y = -Math.PI / 2;
@@ -95,12 +95,12 @@
                 });
                 
                 let planetALoader = new THREE.MTLLoader();
-                planetALoader.load("meteorHalf.mtl", function(materials) {
+                planetALoader.load("models/meteorHalf.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("meteorHalf.obj", function(mesh) {
+                    objLoader.load("models/meteorHalf.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(-40, -5, -40);
                         mesh.scale.set(1.5, 1.5, 1.5);
@@ -117,12 +117,12 @@
                 scene.add( planeA );
         
                 let planetBLoader = new THREE.MTLLoader();
-                planetBLoader.load("meteorHalf.mtl", function(materials) {
+                planetBLoader.load("models/meteorHalf.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("meteorHalf.obj", function(mesh) {
+                    objLoader.load("models/meteorHalf.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(-40, -5, 40);
                         mesh.scale.set(1.5, 1.5, 1.5);
@@ -139,12 +139,12 @@
                 scene.add( planeB );
         
                 let planetDLoader = new THREE.MTLLoader();
-                planetDLoader.load("meteorHalf.mtl", function(materials) {
+                planetDLoader.load("models/meteorHalf.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("meteorHalf.obj", function(mesh) {
+                    objLoader.load("models/meteorHalf.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(40, -5, -40);
                         mesh.scale.set(1.5, 1.5, 1.5);
@@ -160,12 +160,12 @@
                 scene.add( planeD );
         
                 let planetELoader = new THREE.MTLLoader();
-                planetELoader.load("meteorHalf.mtl", function(materials) {
+                planetELoader.load("models/meteorHalf.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("meteorHalf.obj", function(mesh) {
+                    objLoader.load("models/meteorHalf.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(40, -5, 40);
                         mesh.scale.set(1.5, 1.5, 1.5);
@@ -185,12 +185,12 @@
             // Build the start and end points and their decorations.
             function buildBases() {
                 let startBaseLoader = new THREE.MTLLoader();
-                startBaseLoader.load("meteorHalf.mtl", function(materials) {
+                startBaseLoader.load("models/meteorHalf.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("meteorHalf.obj", function(mesh) {
+                    objLoader.load("models/meteorHalf.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(-90, -2, 0);
                         mesh.scale.set(4, 4, 4);
@@ -199,12 +199,12 @@
                 });
         
                 let stationLoader = new THREE.MTLLoader();
-                stationLoader.load("station.mtl", function(materials) {
+                stationLoader.load("models/station.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("station.obj", function(mesh) {
+                    objLoader.load("models/station.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(-90, -1.7, 5);
                         mesh.scale.set(2, 2, 2);
@@ -212,12 +212,12 @@
                 });
         
                 let smallSatelliteLoader = new THREE.MTLLoader();
-                smallSatelliteLoader.load("satelliteDish.mtl", function(materials) {
+                smallSatelliteLoader.load("models/satelliteDish.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("satelliteDish.obj", function(mesh) {
+                    objLoader.load("models/satelliteDish.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(-100, -1.7, -9);
                         mesh.scale.set(2, 2, 2);
@@ -226,12 +226,12 @@
                 });
         
                 let finishBaseLoader = new THREE.MTLLoader();
-                finishBaseLoader.load("meteorHalf.mtl", function(materials) {
+                finishBaseLoader.load("models/meteorHalf.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("meteorHalf.obj", function(mesh) {
+                    objLoader.load("models/meteorHalf.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(90, -2, 0);
                         mesh.scale.set(6,6,6);
@@ -240,12 +240,12 @@
                 });
                 
                 let finishPlatformLoader = new THREE.MTLLoader();
-                finishPlatformLoader.load("metalTile.mtl", function(materials) {
+                finishPlatformLoader.load("models/metalTile.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("metalTile.obj", function(mesh) {
+                    objLoader.load("models/metalTile.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(88, -2, -10);
                         mesh.scale.set(2, 2, 2);
@@ -253,12 +253,12 @@
                 });
         
                 let bigSatelliteLoader = new THREE.MTLLoader();
-                bigSatelliteLoader.load("satelliteDishLarge.mtl", function(materials) {
+                bigSatelliteLoader.load("models/satelliteDishLarge.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("satelliteDishLarge.obj", function(mesh) {
+                    objLoader.load("models/satelliteDishLarge.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(100, -2, -20);
                         mesh.scale.set(2, 2, 2);
@@ -267,12 +267,12 @@
                 });
         
                 let corridorLoader = new THREE.MTLLoader();
-                corridorLoader.load("corridor.mtl", function(materials) {
+                corridorLoader.load("models/corridor.mtl", function(materials) {
                     materials.preload();
                     let objLoader = new THREE.OBJLoader();
                     objLoader.setMaterials(materials);
         
-                    objLoader.load("corridor.obj", function(mesh) {
+                    objLoader.load("models/corridor.obj", function(mesh) {
                         scene.add(mesh);
                         mesh.position.set(90, -2, -7);
                         mesh.scale.set(3, 2, 2);
@@ -679,7 +679,7 @@
 				<div class="collapse navbar-collapse" id="nav">
 					<ul class="nav navbar-nav mr-auto justify-content-end">
 						<li class="nav-item">
-							<a class="nav-link" href="https://ishfulthinking.com/projects/list.html">Project List</a>
+							<a class="nav-link" href="..">Project List</a>
 						</li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://ishfulthinking.com">Main Page</a>
