@@ -56,7 +56,7 @@ public class Ish {
     
     String name = "Ishmael Perez";
 
-    public class Education {
+    private class Education {
         String school = "Boston University";
         String degreeInProgress = "B.A. in Computer Science";
         String graduationDate = "May 2020";
@@ -64,26 +64,39 @@ public class Ish {
     }
 
     private class WorkExperience {
-        String jobTitle = "Technical Intern";
-        String [] tasks = { "Back end Apex development for process automation and data storage",
-                            "Front end Visualforce development for websites and interfaces for Siemens teams",
-                            "Maintenance of code quality by refactoring legacy code and creating robust test classes",
-                            "Data administration and tech support for employees around the world",
-                            "Commitment to going above and beyond" };
-        String startDate = "September 2017";
-        String endDate = "March 2019";
+        Job driftInternship = new Job();
+        driftInternship.title = "Software Engineer Intern";
+        driftInternship.startDate = "July 2019"
+        driftInternship.endDate = null;
+        driftInternship.tasks = {
+            "Developed Drift Video app on Android from using Kotlin in Android Studio",
+            "Followed model-view-controller architecture to design tracer bullet for this app from scratch",
+            "Extended Drift's reach to hundreds more customers by giving it a place on the Android marketplace",
+            "Currently design test suites for Drift's iOS app using Xcode's XCUITest framework,
+                to catch bugs before releasing app to production";
+        };
+
+        Job siemensInternship = new Job();
+        siemensInternship.title = "Technical Intern";
+        siemensInternship.startDate = "September 2017"
+        siemensInternship.endDate = "March 2019"
+        siemensInternship.tasks = {
+            "Back end Apex development for process automation and data storage",
+            "Front end Visualforce development for websites and forms used by Siemens teams",
+            "Maintenance of code quality by refactoring legacy code and creating robust test classes"
+        }
     }
 
-    private class HelpfulLinks {
+    private class Links {
         String email = "<a href="mailto:ishmaelkperez@gmail.com">ishmaelkperez@gmail.com</a>";
-        String resumeLink = "<a href="files/resume.pdf">https://ishfulthinking.com/files/resume.pdf</a>";
-        String githubLink = "<a href="https://github.com/ishfulthinking">https://github.com/ishfulthinking</a>";
+        String resume = "<a href="files/resume.pdf">https://ishfulthinking.com/files/resume.pdf</a>";
+        String github = "<a href="https://github.com/ishfulthinking">https://github.com/ishfulthinking</a>";
     }
     
-    float hunger = Math.random();
-    if (hunger >= 0.6) {
+    float craving = Math.random();
+    if (craving >= 0.6) {
         try {
-            System.out.complain("I could really go for some gua bao right now");
+            System.out.complain("I could really go for some boba right now");
         }
         catch (ArithmeticException bankAccountIsEmpty) {
             stomach.grumble();
@@ -96,6 +109,19 @@ public class Ish {
 	<div id="experience">
     <div id="tada"></div>
         <h3>Experience</h3>
+        <p>
+            <strong>Software Engineer Intern <span style="color: gray">@ Drift</span><br></strong>
+            July 2019 - Present
+            <ul>
+                <li>Coded the tracer bullet for the Drift Video messaging app from scratch using 
+                    Kotlin in Android Studio
+                </li>
+                <li>Followed model-view-controller paradigm when designing the app to design it robustly</li>
+                <li>Now work on Drift's iOS app to design test suites to catch bugs before the app is updated 
+                    in production, using Xcode's XCUITest framework and checking numerous edge cases automatically
+                </li>
+            </ul>
+        </p>
         <p>
             <strong>Technical Intern <span style="color: gray">@ Siemens Energy</span><br></strong>
             September 2018 - March 2019
