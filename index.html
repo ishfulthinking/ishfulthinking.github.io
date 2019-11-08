@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Boilerplate HTML stuff -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ishfulthinking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/index.css" type="text/css">
-    <script src="files/index.js" type="text/javascript"></script>
+    <!-- Our page's title and custom styling file -->
+    <title>ishfulthinking</title>
+    <meta name="description" content="Personal portfolio website for Ishmael Perez">
+    <script src="index.js" type="text/javascript"></script>
 
-    <!-- Additional stylesheet and JavaScript for highlighting "code" resume summary -->
+    <!-- Styling files -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="files/highlightjs/styles/vs2015.css">
+    <link rel="stylesheet" href="index.css" type="text/css">
+
+    <!-- Javascript files -->
     <script src="files/highlightjs/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- Additional files for favicon to work with multiple browsers/systems -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -27,57 +37,124 @@
 </head>
 
 <body>
-	<div id="header">
-		Ishmael Perez
-    </div>
-    <div id="navcontainer">
-        <ul class="navbar">
-            <li><a href="#about">           <div id="aboutLink">About</div>     </a></li>
-            <li><a href="#experience">      <div id="experLink">Experience</div></a></li>
-            <li><a href="#coding">          <div id="codingLink">Coding</div>   </a></li>
-            <li><a href="#music">           <div id="musicLink">Music</div>     </a></li>
-            <li><a href="#art">             <div id="artLink">Art</div>         </a></li>
-            <li><a href="#contact">         <div id="contactLink">Contact</div> </a></li>
-        </ul>
+    <!-- Navbar section -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">
+            <img src="media/bulb.png" width="34px" height="45px" alt="ishfulthinking">
+            ishfulthinking
+        </a>
+        <!-- Hamburger button-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="nav navbar-nav mr-auto justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="#overview">Overview</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#experience">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#music">Music</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#art">Art</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Links
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="projects/">Projects Page</a>
+                        <a class="dropdown-item" href="https://www.linkedin.com/in/ishfulthinking/">LinkedIn</a>
+                        <a class="dropdown-item" href="https://github.com/ishfulthinking">GitHub</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="https://www.youtube.com/channel/UCK7K27XYAxnjxVoMtlfU4sg?view_as=subscriber">Music (YouTube)</a>
+                        <a class="dropdown-item" href="https://ishfulthinking.tumblr.com/tagged/my-art">Art (Tumblr)</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="container-fluid" id="carousel-container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="https://github.com/ishfulthinking/Creating-a-Website-with-Bootstrap">
+                        <img class="d-block w-100" src="media/carousel-bootstrap.PNG" alt="Creating a Website with Bootstrap carousel item">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://github.com/ishfulthinking/fitbit-Fit-and-Bit">
+                        <img class="d-block w-100" src="media/carousel-fitbit.PNG" alt="Second slide">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://github.com/ishfulthinking/Python-Hand-Gesture-Recognition">
+                        <img class="d-block w-100" src="media/carousel-recognition.PNG" alt="Third slide">
+                    </a>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     </div>
 
-	<div id="about">
-        <h3>About</h3>
-        <div id="ish"></div>
-        <div id="aboutText">
-            <p>
-                Hi, my name is Ishmael Perez. I'm a rising senior at Boston University completing my B.A. in Computer Science.
-            </p>
-            <p>
-                Here's an at-a-glance summary of my work and other info:
-            </p>
-            <pre><code class="java">// It's wrong to treat people as objects, so I make sure to treat myself with class
-public class Ish {
+    <!-- Main page -->
+    <div class="container" id="main-page">
     
-    String name = "Ishmael Perez";
+        <!-- Overview -->
+        <div class="row odd" id="overview">
+            <div class="container">
+                <h1>Overview</h1>
+                <p>Hi! I'm Ishmael, but you can call me Ish. I'm a senior at Boston 
+                    University actively seeking full-time software engineering roles.</p>
+                <p>Here's a quick summary of my CV:</p>
+                <pre><code class="java">// It's wrong to treat people as objects, so I make sure to treat myself with class
+public class Ish {
+    public String name = "Ishmael Perez";
 
     private class Education {
         String school = "Boston University";
-        String degreeInProgress = "B.A. in Computer Science";
-        String graduationDate = "May 2020";
+        String degree = "B.A. in Computer Science";
+        String gradDate = "May 2020";
         float gpa = 3.23;
     }
 
     private class WorkExperience {
-        Job driftInternship = new Job();
-        driftInternship.title = "Software Engineer Intern";
+        Job driftInternship = new Job("Software Engineer Intern", "Drift.com");
         driftInternship.startDate = "July 2019"
         driftInternship.endDate = null;
         driftInternship.tasks = {
-            "Developed Drift Video app on Android from using Kotlin in Android Studio",
-            "Followed model-view-controller architecture to design tracer bullet for this app from scratch",
-            "Extended Drift's reach to hundreds more customers by giving it a place on the Android marketplace",
-            "Currently design test suites for Drift's iOS app using Xcode's XCUITest framework,
-                to catch bugs before releasing app to production";
+            "Developed prototype for Drift Video app on Android from using Kotlin in Android Studio,
+                setting foundation for reaching countless new customers who use Android",
+            "Now design test suites for Drift's iOS app using Xcode's XCUITest framework
+                to catch bugs before releasing updates to production",
         };
 
-        Job siemensInternship = new Job();
-        siemensInternship.title = "Technical Intern";
+        Job siemensInternship = new Job("Technical Intern", "Siemens AG");
         siemensInternship.startDate = "September 2017"
         siemensInternship.endDate = "March 2019"
         siemensInternship.tasks = {
@@ -88,136 +165,277 @@ public class Ish {
     }
 
     private class Links {
-        String email = "<a href="mailto:ishmaelkperez@gmail.com">ishmaelkperez@gmail.com</a>";
-        String resume = "<a href="files/resume.pdf">https://ishfulthinking.com/files/resume.pdf</a>";
-        String github = "<a href="https://github.com/ishfulthinking">https://github.com/ishfulthinking</a>";
-    }
-    
-    float craving = Math.random();
-    if (craving >= 0.6) {
-        try {
-            System.out.complain("I could really go for some boba right now");
-        }
-        catch (ArithmeticException bankAccountIsEmpty) {
-            stomach.grumble();
-        }
+        Link resume = new Link("<a href="files/resume.pdf">https://ishfulthinking.com/files/resume.pdf</a>");
+        Link linkedin = new Link("<a href="https://www.linkedin.com/in/ishfulthinking/">https://www.linkedin.com/in/ishfulthinking/</a>");
+        Link github = new Link("<a href="https://github.com/ishfulthinking">https://github.com/ishfulthinking</a>");
+        Email personalEmail = new Link("<a href="mailto:ishmaelkperez@gmail.com">ishmaelkperez@gmail.com</a>");
     }
 }</code></pre>
+            </div>
         </div>
+
+        <!-- Experience -->
+        <div class="row" id="experience">
+            <div class="container">
+                <h1>Education</h1>
+                <p>I should start off with my schooling, since I'm spending a lot of money for the 
+                    special piece of paper they hand me when I walk across the stage.</p>
+                <h4>B.A. in Computer Science from Boston University</h4>
+                <h6>Expected graduation: May 2020 | GPA: 3.23</h6>
+                <ul>
+                    <li>
+                        Completed coursework includes algorithm analysis, data structures, 
+                        software engineering, mobile app development, computer networks, 
+                        and artificial intelligence
+                    </li>
+                </ul>
+
+
+
+                <h1>Work Experience</h1>
+                <p>I hold two internships under my belt and have coded in both the front-end and back-end:</p>
+                <h4>Software Engineer Intern at Drift.com</h4>
+                <h6>July 2019 - Present | Boston, MA</h6>
+                    <ul>
+                        <li>
+                            I built the prototype for the Drift Video app on Android using Kotlin in Android Studio. 
+                            While building it from scratch, I referenced the existing iOS app to guarantee existing 
+                            use cases were replicated and reliably implemented. Completion of this project set the 
+                            foundation for reaching countless new customers who use Android devices.
+                        </li>
+                        <li>
+                            While building the app in Android, I implemented the OkHttp and CameraX libraries to handle 
+                            HTTP requests/JSON parsing and video recording respectively. I then veriﬁed HTTP request/response 
+                            correctness using the Postman tool.
+                        </li>
+                        <li>
+                            I currently do quality assurance and front end development by building comprehensive test 
+                            suites for Drift's iOS app. These tests are coded using the XCUITest framework on Xcode and 
+                            have prevented bugs from shipping to production, which upholds Drift's high quality standards.
+                        </li>
+                    </ul>
+                <h4>Technical Intern at Siemens AG</h4>
+                <h6>July 2019 - Present | Orlando, FL</h6>
+                    <ul>
+                        <li>
+                            I coded back-end triggers and classes to automate data processing in the company’s Salesforce 
+                            environment, which has saved countless hours and overhead costs by automating processes that 
+                            were previously performed by hand (e.g. data entry and invalid data removal in the wind energy 
+                            division) using the Java-like Apex and SQL-like SOQL languages.
+                        </li>
+                        <li>
+                            When Siemens teams needed maintenance requests, their forms would sometimes pass invalid data 
+                            into the back end. To rectify this, I created and refactored forms using the HTML-like Visualforce 
+                            language and modified the existing back end code to filter invalid data and work more efficiently.
+                        </li>
+                    </ul>
+
+
+
+                <h1>Extracurriculars</h1>
+                <p>I also do things outside of school and work, I promise! Here are some of the things I do as extracurriculars:</p>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#extracurricular-list" aria-expanded="false" aria-controls="collapseExample">
+                    Show/hide extracurricular activities
+                </button>
+                <div class="collapse" id="extracurricular-list">
+                    <h4>Wallbreakers Trainee Mentor</h4>
+                    <h6>October 2019 - Present</h6>
+                    <ul>
+                        <li>
+                            Having been a previous trainee, I know how helpful Wallbreakers software engineering training program is. 
+                            I hold weekly online office hours where I guide students through Leetcode problems to strengthen their grasps on 
+                            algorithm analysis and data structures, both of which relate directly to their future careers in software engineering.
+                        </li>
+                        <li>
+                            I do resume reviews whenever needed, especially before students are referred to companies so they put their 
+                            best foot forward when applying. I also conduct mock interviews with these students to strengthen both their 
+                            technical and soft skills.
+                        </li>
+                    </ul>
+                    <h4>Facebook Above & Beyond Computer Science Program Trainee</h4>
+                    <h6>September 2019 - Present</h6>
+                    <ul>
+                        <li>
+                            I complete coding assignment sets and visit the Facebook offices weekly to strengthen my coding and 
+                            review skills related to acing coding interview.
+                        </li>
+                    </ul>
+                    <h4>Member of the Society of Hispanic Professional Engineers (SHPE)</h4>
+                    <h6>June 2019 - Present</h6>
+                    <ul>
+                        <li>
+                            I regularly attend and volunteer at extracurricular events such as workshops and community events to support 
+                            the communities that are underrepresented in STEM, especially the Hispanic/Latinx community.
+                        </li>
+                        <li>
+                            I was one of fewer than 10 students who received the SHPE Chevron scholarship this 2019-2020 academic year!
+                        </li>
+                    </ul>
+                    <h4>Wallbreakers Software Engineering Program Trainee</h4>
+                    <h6>April 2019 - June 2019</h6>
+                    <ul>
+                        <li>
+                            I completed <a href="https://github.com/ishfulthinking/LeetCode-problems">weekly coding problem sets</a> to 
+                            strengthen my skills in runtime analysis, hash maps, graphs, linked lists, trees, etc... you name it, we practiced it!
+                        </li>
+                        <li>
+                            I regularly participated in homework and career-related discussions to help other students, especially students new to CS. 
+                            I also created a <a href="https://docs.google.com/document/d/1clBU6vYIjnBrMDwNJrcUR0yY4bVTQXKBk45s9NBrvNU/edit?usp=sharing">
+                            guide to help them get acquainted with Git</a> and submit their assignments to Github for instructor review.
+                        </li>
+                    </ul>
+                    <h4>Member of Upsilon Pi Epsilon (UPE) Computer Science Honor Society</h4>
+                    <h6>March 2019 - Present</h6>
+                    <ul>
+                        <li>
+                            I meet weekly with other club members to work on projects, solve coding problems, and mentor underclassmen.
+                        </li>
+                    </ul>
+                    <h4>Co-Founder and Membership Coordinator for QLatinx</h4>
+                    <h6>July 2016 - October 2018</h6>
+                    <p>OK, this one isn't CS-related, but it's something I'm very proud of.</p>
+                    <ul>
+                        <li>
+                            After the Pulse Nightclub tragedy in June of 2016, I met with community members to develop ways to support the 
+                            Latinx and LGBTQ communities. We built this nonprofit together and met weekly to hold workshops, health fairs, 
+                            and develop activism/advocacy skills in our membership. Since then, it's grown large and has been recognized nationally!
+                        </li>
+                        <li>
+                            I created and developed the <i>Community Cocina</i> cooking class series in which I worked with a local chef to cook 
+                            Latin American countries' signature dishes and teach the community about Latinx culture. The program was accessible to all 
+                            and grew to be our most popular program, serving hundreds of people over its lifetime. It ran monthly and still runs to this day!
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="row" id="projects">
+            <div class="container">
+                <h1>Projects</h1>
+                <p>
+                    <a href="https://github.com/ishfulthinking">My GitHub account</a> has multiple projects
+                    I've worked on, whether that's for fun, a school assignment, or simply to practice a new skill.
+                </p>
+                <p>
+                    You can also find a <a href="projects">full list of my personal passion projects here</a>.
+                </p>
+                <table class="table with-images">
+                    <tr>
+                        <td class="w-25">
+                            <a href="https://github.com/ishfulthinking/Creating-a-Website-with-Bootstrap">
+                                <img src="projects/media/bootstrap-guide.PNG" class="img-fluid img-thumbnail" alt="Bootstrap Guide">
+                                <h6>Creating a Website with Bootstrap Guide</h6>
+                            </a>
+                        </td>
+                        <td class="w-25">
+                            <a href="https://github.com/ishfulthinking/fitbit-Fit-and-Bit">
+                                <img src="projects/media/fit-and-bit.png" class="img-fluid img-thumbnail" alt="Fitbit Ionic Fit & Bit Clock Face">
+                                <h6>Fitbit Ionic Clock Faces - Fit & Bit</h6>
+                            </a>
+                        </td>
+                        <td class="w-25">
+                            <a href="https://github.com/ishfulthinking/Python-Hand-Gesture-Recognition">
+                                <img src="projects/media/scissors.gif" class="img-fluid img-thumbnail" alt="Python Hand Recognition Guide">
+                                <h6>Python Hand Recognition Guide</h6>
+                            </a>
+                        </td>
+                        <td class="w-25">
+                            <a href="https://github.com/ishfulthinking/Dijkstra-Visual">
+                                <img src="projects/media/dijkstra.PNG" class="img-fluid img-thumbnail" alt="Dijkstra Visualization">
+                                <h6>Dijkstra's Algorithm three.js Visualization</h6>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Music -->
+        <div class="row" id="music">
+            <div class="container">
+                <h1>Music</h1>
+                <p>I play piano and cover pop, video game, and indie rock songs. I typically 
+                    arrange by ear and challenge myself to play more technically with each cover.</p>
+                <p><a href="https://www.youtube.com/channel/UCK7K27XYAxnjxVoMtlfU4sg">My YouTube channel</a> has videos of my piano covers.</p>
+            </div>
+            <div class="container">
+                <table class="with-images">
+                    <tr>
+                        <td class="w-25">
+                            <iframe max-width="800px" max-height="600px" src="https://www.youtube.com/embed/vUj93aqGcXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </td>
+                        <td class="w-25">
+                            <iframe max-width="800px" max-height="600px" src="https://www.youtube.com/embed/MJXdaq_4Tm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Art -->
+        <div class="row" id="art">
+            <div class="container">
+                <h1>Art</h1>
+                <p>I love illustration and have done a few myself. I also really 
+                    like to draw on my TI-83 calculator, whether that's portraits 
+                    or typical pixel art.</p>
+                <p>My art can be found on <a href="https://ishfulthinking.tumblr.com/tagged/my-art">my Tumblr blog.</a></p>
+                <table class="table with-images">
+                    <tr>
+                        <td class="w-25">
+                            <a href="https://ishfulthinking.tumblr.com/post/177756466691/a-collection-of-calculator-art-of-me-and-my">
+                                <img src="media/calc.jpg" class="img-fluid img-thumbnail" alt="Calculated Ish"></img>
+                                <h6>TI-83 Me and My Friends</h6>
+                            </a>
+                        </td>
+                        <td class="w-25">
+                            <a href="https://ishfulthinking.tumblr.com/post/178233459351/a-drawing-i-did-of-activist-dolores-huerta-in-the">
+                                <img src="media/sisepuede.png" class="img-fluid img-thumbnail" alt="Dolores Huerta Illustration">
+                                <h6>Dolores Huerta Illustration</h6>
+                            </a>
+                        </td>
+                        <td class="w-25">
+                            <a href="https://ishfulthinking.tumblr.com/post/177756558736/evangelion-unit-01-aka-eva-unit-01-from-neon">
+                                <img src="media/eva.jpg" class="img-fluid img-thumbnail" alt="Calculated Eva Unit 1">
+                                <h6>TI-83 Evangelion Unit 1</h6>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="row" id="contact">
+            <div class="container">
+                <h1>Contact</h1>
+                <p>I'm flattered that you want to speak with me! Feel free to connect 
+                    and chat with me through any of the following ways, whether that's 
+                    to suggest something, offer some praise, or complain. I appreciate 
+                    all feedback 👍🏽</p>
+                <ul>
+                    <li>
+                        <strong>Email: </strong><a href="mailto:ishmaelkperez@gmail.com">ishmaelkperez@gmail.com</a>
+                    </li>
+                    <li>
+                        <strong>LinkedIn: </strong><a href="https://www.linkedin.com/in/ishfulthinking/">https://www.linkedin.com/in/ishfulthinking/</a>
+                    </li>
+                    <li>
+                        <strong>Github: </strong><a href="https://github.com/ishfulthinking">https://github.com/ishfulthinking</a>
+                    </li>
+                </ul>
+                <p>If you like my work so much you want to financially support me 
+                    as a broke college student, feel free to donate to <a href="https://www.paypal.com/paypalme/my/profile">my Paypal</a> 🥺</p>
+            </div>
+        </div>
+
     </div>
-    
-	<div id="experience">
-    <div id="tada"></div>
-        <h3>Experience</h3>
-        <p>
-            <strong>Software Engineer Intern <span style="color: gray">@ Drift</span><br></strong>
-            July 2019 - Present
-            <ul>
-                <li>Coded the tracer bullet for the Drift Video messaging app from scratch using 
-                    Kotlin in Android Studio
-                </li>
-                <li>Followed model-view-controller paradigm when designing the app to design it robustly</li>
-                <li>Now work on Drift's iOS app to design test suites to catch bugs before the app is updated 
-                    in production, using Xcode's XCUITest framework and checking numerous edge cases automatically
-                </li>
-            </ul>
-        </p>
-        <p>
-            <strong>Technical Intern <span style="color: gray">@ Siemens Energy</span><br></strong>
-            September 2018 - March 2019
-            <ul>
-                <li>Wrote back-end code in Salesforce's Apex language (similar to Java)
-                    to automate server actions like data processing, updating cases, and
-                    deactivating inactive users.</li>
-                <li>Wrote front-end code using Visualforce (similar to HTML) to
-                    create forms and pages for Siemens employees to input data.</li>
-                <li>Refactored legacy code to make it more efficient; examples include optimizing processes
-                    with SOQL (similar to SQL) queries to have a lower runtime.</li>
-            </ul>
-        </p>
-        <br>
-        <p>
-            <strong>Co-Founder and Membership Coordinator <span style="color: gray">@ <a href="https://www.qlatinx.org/" class="gray">QLatinx</a></span><br></strong>
-            June 2016 - October 2018
-            <ul>
-                <li>Co-founded nonprofit organization in response to Pulse nightclub tragedy to build
-                    community and bring awareness to LGBTQ and Latinx issues in central Florida.</li>
-                <li>Served on executive board by coordinating events such as fundraisers, health fairs, 
-                    workshops, and family events.</li>
-                <li>Created the Community Cocina monthly cooking class series and developed the classes' 
-                    cultural history curriculum. As our most popular program, it served hundreds of people 
-                    in central Florida by educating them on Latin culture, cuisine, and how food unites us all.</li>
-            </ul>
-        </p>
-    </div>
-    
-	<div id="coding">
-        <h3>Coding</h3>
-        <p>
-            <a href="https://github.com/ishfulthinking">My GitHub account</a> has multiple projects
-            I've worked on, whether that's for fun, a school assignment, or simply to practice a new skill.
-        </p>
-        <p>
-            You can also find a <a href="projects">full list of my independent projects here</a>.
-        </p>
-        <table>
-            <tr>
-                <td><a href="https://github.com/ishfulthinking/fitbit-rays"><img src="projects/media/fitbit-rays.png"></a></td>
-                <td><a href="projects/dijkstra"><img src="projects/media/dijkstra.png"></a></td>
-                <td><a href="https://github.com/ishfulthinking/Creating-a-Website-with-Bootstrap"><img src="projects/media/bootstrap-guide.PNG"></a></td>
-            </tr>
-            <tr>
-                <td><a href="https://github.com/ishfulthinking/Python-Hand-Gesture-Recognition"><img src="projects/media/scissors.gif"></a></td>
-                <td><a href="https://ishfulthinking.itch.io/resumebound"><img src="projects/media/resumebound-1.PNG"></a></td>
-            </tr>
-        </table>
-        <p>Projects I've worked on include:</p>
-        <ul>
-            <li>Fitbit Ionic watch faces that give info at-a-glance, such as heart rate and goal progress</li>
-            <li>A visualization of Dijkstra's algorithm using a spaceship and three.js's out-of-the-box GUI</li>
-            <li>A guide to making websites using Bootstrap</li>
-            <li>A guide to making a Python program that reads hand gestures via the OpenCV library</li>
-            <li>An interactive resume in the style of Earthbound and other JRPGs</li>
-        </ul>
-    </div>
-    
-	<div id="music">
-		<h3>Music</h3>
-        <p><a href="https://www.youtube.com/channel/UCK7K27XYAxnjxVoMtlfU4sg">My YouTube channel</a> has videos of my piano covers,
-        almost always learned by ear and arranged by me.</p>
-        <p>It's mostly video game music with some instrumental versions of pop songs thrown in, too.</p>
-        <table>
-            <tr>
-                <td><iframe id="frame" max-width="100%" max-height="100%" src="https://www.youtube.com/embed/MJXdaq_4Tm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-            </tr>
-            <tr>
-                <td><iframe id="frame" max-width="100%" max-height="100%" src="https://www.youtube.com/embed/YThcUGLvyeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-            </tr>
-        </table>
-    </div>
-    
-	<div id="art">
-		<h3>Art</h3>
-        <p><a href="https://ishfulthinking.tumblr.com/tagged/my-art">My Tumblr blog</a> has some of my art uploaded to it.</p>
-        <p>I like drawing on my TI-83 calculator and making illustrations. My "Si Se Puede" design was sold
-            as a t-shirt by QLatinx, the nonprofit grassroots organization I co-founded.</p>
-        <table>
-            <tr>
-                <td><a href="https://ishfulthinking.tumblr.com/post/177756466691/a-collection-of-calculator-art-of-me-and-my"><img src="media/calc.jpg"></a></td>
-                <td><a href="https://ishfulthinking.tumblr.com/post/178233459351/a-drawing-i-did-of-activist-dolores-huerta-in-the"><img src="media/sisepuede.png"></a></td>
-                <td><a href="https://ishfulthinking.tumblr.com/post/177756558736/evangelion-unit-01-aka-eva-unit-01-from-neon"><img src="media/eva.jpg"></a></td>
-            </tr>
-        </table>
-    </div>
-    
-	<div id="contact">
-		<h3>Contact</h3>
-        <p>You can email me at <a href="mailto:ishmaelkperez@gmail.com">ishmaelkperez@gmail.com</a>.</p>
-        <p>If you like my work or just want to help a broke college student, please consider 
-            donating by <a href="https://www.buymeacoffee.com/ishfulthinking">buying me a coffee</a>.</p>
-    </div>
-    
+
+    <!-- Clippy surprise -->
     <a id="bubble" href="#contact" onclick="vanquishClippy();"></a>
     <a id="clippy" href="#contact" onclick="vanquishClippy();"></a>
 </body>
+
 </html>
