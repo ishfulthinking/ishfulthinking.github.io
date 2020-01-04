@@ -142,6 +142,14 @@ pre a {
     margin: 0.5em;
 }
 
+#footer {
+    background: none;
+    box-shadow: none;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.8em;
+}
+
 #bubble {
     display: none;
     width: 200px;
@@ -167,4 +175,15 @@ pre a {
     position: fixed;
     z-index: 2;
     transition: opacity 0.3s ease-in-out;
+}
+
+@media (max-width: 991px) {
+    #iframe {
+        width: 560px;
+        height: 340px;
+        overflow: hidden;
+        zoom: 0.25;
+        transform: scale(0.25); -moz-transform: scale(0.25);
+        transform-origin: 0 0; -moz-transform-origin: 0 0;
+    }
 }

@@ -131,7 +131,8 @@
             <div class="container">
                 <h1>Overview</h1>
                 <p>Hi! I'm Ishmael, but you can call me Ish. I'm a senior at Boston 
-                    University actively seeking full-time software engineering roles.</p>
+                    University actively seeking part-time software engineering roles 
+                    for the spring and full-time roles after my May 2020 graduation.</p>
                 <p>Here's a quick summary of my CV:</p>
                 <pre><code class="java">// It's wrong to treat people as objects, so I make sure to treat myself with class
 public class Ish {
@@ -140,19 +141,21 @@ public class Ish {
     private class Education {
         String school = "Boston University";
         String degree = "B.A. in Computer Science";
-        String gradDate = "May 2020";
+        String graduation = "May 2020";
         float gpa = 3.23;
     }
 
     private class WorkExperience {
         Job driftInternship = new Job("Software Engineer Intern", "Drift.com");
         driftInternship.startDate = "July 2019"
-        driftInternship.endDate = null;
+        driftInternship.endDate = "December 2019";
         driftInternship.tasks = {
             "Developed prototype for Drift Video app on Android from using Kotlin in Android Studio,
                 setting foundation for reaching countless new customers who use Android",
-            "Now design test suites for Drift's iOS app using Xcode's XCUITest framework
+            "Created test suites for Drift's iOS app using Xcode's XCUITest framework
                 to catch bugs before releasing updates to production",
+            "Coded UI components including login and detail views in Swift while following model-view-controller 
+                architecture and connecting to existing back-end components"
         };
 
         Job siemensInternship = new Job("Technical Intern", "Siemens AG");
@@ -196,7 +199,7 @@ public class Ish {
                 <h1>Work Experience</h1>
                 <p>I hold two internships under my belt and have coded in both the front-end and back-end:</p>
                 <h4>Software Engineer Intern at Drift.com</h4>
-                <h6>July 2019 - Present | Boston, MA</h6>
+                <h6>July 2019 - December 2020 | Boston, MA</h6>
                     <ul>
                         <li>
                             I built the prototype for the Drift Video app on Android using Kotlin in Android Studio. 
@@ -210,9 +213,14 @@ public class Ish {
                             correctness using the Postman tool.
                         </li>
                         <li>
-                            I currently do quality assurance and front end development by building comprehensive test 
-                            suites for Drift's iOS app. These tests are coded using the XCUITest framework on Xcode and 
-                            have prevented bugs from shipping to production, which upholds Drift's high quality standards.
+                            Afterward, I did quality assurance and front end development by building comprehensive test 
+                            suites for Drift's iOS app. I programmed these tests using the XCUITest framework in Xcode and 
+                            have prevented bugs from shipping to production, which upheld Drift's high quality standards.
+                        </li>
+                        <li>
+                            I finished my internship coding front end components like the login and video detail views in 
+                            Swift. I coded from scratch for some and for others, I edited existing views to fit new UI designs. 
+                            All components were coded using the model-view-controller architecture and the RxSwift library.
                         </li>
                     </ul>
                 <h4>Technical Intern at Siemens AG</h4>
@@ -254,7 +262,7 @@ public class Ish {
                         </li>
                     </ul>
                     <h4>Facebook Above & Beyond Computer Science Program Trainee</h4>
-                    <h6>September 2019 - Present</h6>
+                    <h6>September 2019 - November 2019</h6>
                     <ul>
                         <li>
                             I complete coding assignment sets and visit the Facebook offices weekly to strengthen my coding and 
@@ -365,10 +373,10 @@ public class Ish {
                 <table class="with-images">
                     <tr>
                         <td class="w-25">
-                            <iframe max-width="800px" max-height="600px" src="https://www.youtube.com/embed/vUj93aqGcXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe id="iframe" max-width="800px" max-height="600px" src="https://www.youtube.com/embed/vUj93aqGcXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </td>
                         <td class="w-25">
-                            <iframe max-width="800px" max-height="600px" src="https://www.youtube.com/embed/MJXdaq_4Tm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe id="iframe" max-width="800px" max-height="600px" src="https://www.youtube.com/embed/MJXdaq_4Tm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </td>
                     </tr>
                 </table>
@@ -428,8 +436,15 @@ public class Ish {
                     </li>
                 </ul>
                 <p>If you like my work so much you want to financially support me 
-                    as a broke college student, feel free to donate to <a href="https://www.paypal.com/paypalme/my/profile">my Paypal</a> 🥺</p>
+                    as a broke college student, feel free to donate to <a href="https://www.paypal.com/paypalme/my/profile">my Paypal</a> 🙏🥺</p>
             </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="row" id="footer">
+            <p>
+                Ishmael Perez • Last edited 3 January 2020
+            </p>
         </div>
 
     </div>
