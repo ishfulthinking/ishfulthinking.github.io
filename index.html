@@ -130,9 +130,8 @@
         <div class="row odd" id="overview">
             <div class="container">
                 <h1>Overview</h1>
-                <p>Hi! I'm Ishmael, but you can call me Ish. I'm a senior at Boston 
-                    University actively seeking part-time software engineering roles 
-                    for the spring and full-time roles after my May 2020 graduation.</p>
+                <p>Hi! I'm Ishmael, but you can call me Ish. I'm a new grad ('20) from Boston University 
+                    seeking full-time software engineering roles. I like people, places, and things.</p>
                 <p>Here's a quick summary of my CV:</p>
                 <pre><code class="java">// It's wrong to treat people as objects, so I make sure to treat myself with class
 public class Ish {
@@ -141,13 +140,27 @@ public class Ish {
     private class Education {
         String school = "Boston University";
         String degree = "B.A. in Computer Science";
-        String graduation = "May 2020";
-        float gpa = 3.23;
+        String graduatedDate = "May 2020";
+        final float gpa = 3.1;
     }
 
     private class WorkExperience {
+
+        Job sparkFellow = new Job("Innovation Fellow", "BU Spark! Lab");
+        sparkFellow.startDate = "January 2020";
+        sparkFellow.endDate = "May 2020";
+        sparkFellow.tasks = {
+            "Planned and researched mental healthcare and iOS development to create 
+                full-fledged iOS app for people with depression and bipolar disorder",
+            "Coded app in Swift using model-view-controller architecture; currently expanding 
+                functions of the app and integrating it to use cloud storage",
+            "Met with law clinic, pitched app to potential funders, performed weekly Agile 
+                sprints as scrum master with teammates and on my own"
+        };
+        
+
         Job driftInternship = new Job("Software Engineer Intern", "Drift.com");
-        driftInternship.startDate = "July 2019"
+        driftInternship.startDate = "July 2019";
         driftInternship.endDate = "December 2019";
         driftInternship.tasks = {
             "Developed prototype for Drift Video app on Android from using Kotlin in Android Studio,
@@ -182,10 +195,10 @@ public class Ish {
         <div class="row" id="experience">
             <div class="container">
                 <h1>Education</h1>
-                <p>I should start off with my schooling, since I'm spending a lot of money for the 
-                    special piece of paper they hand me when I walk across the stage.</p>
+                <p>I should start off with my schooling, since I spent a lot of money for the 
+                    special piece of paper with my name and major on it.</p>
                 <h4>B.A. in Computer Science from Boston University</h4>
-                <h6>Expected graduation: May 2020 | GPA: 3.23</h6>
+                <h6>Graduated May 2020 | GPA: 3.1</h6>
                 <ul>
                     <li>
                         Completed coursework includes algorithm analysis, data structures, 
@@ -197,9 +210,31 @@ public class Ish {
 
 
                 <h1>Work Experience</h1>
-                <p>I hold two internships under my belt and have coded in both the front-end and back-end:</p>
+                <p>I hold a fellow ship and two internships under my belt and have coded in both the front-end and back-end:</p>
+                <h4>Spark! Innovation Continuing Fellow at BU Department of Computer Science</h4>
+                <h6>January 2020 - May 2020 | Boston, MA</h6>
+                    <ul>
+                        <li>
+                            I planned and built an iOS app called Forget-Me-Not for helping people with depression and 
+                            bipolar disorder. Inspired by my own struggles with depression, the app functions as a journal 
+                            and mood tracker, and I plan to add medication tracking/reminders, a self-care exercise list, 
+                            and a progress report generator to send summaries to counselors and loved ones.
+                        </li>
+                        <li>
+                            I began the project after my application for the Spark! Innovation Fellowship was accepted in 
+                            September 2019. I used the semester to plan and start the project by interviewing target users, 
+                            examining competitors, and begin coding using storyboards, but found that coding the app was more 
+                            beneficial for both my learning and the project's long-term maintenance.
+                        </li>
+                        <li>
+                            I coded the app itself in Swift and using a model-view-controller (MVC) architecture.
+                            I applied to funding opportunities including the Idea Cup (for which we won 3rd place) and 
+                            New Venture Competition (for which I was a semifinalist) held by BU's BUild Lab. As a health-based 
+                            app, I also met with the BU and MIT startup law clinic to guarantee my app was compliant with HIPAA.
+                        </li>
+                    </ul>
                 <h4>Software Engineer Intern at Drift.com</h4>
-                <h6>July 2019 - December 2020 | Boston, MA</h6>
+                <h6>July 2019 - December 2019 | Boston, MA</h6>
                     <ul>
                         <li>
                             I built the prototype for the Drift Video app on Android using Kotlin in Android Studio. 
@@ -224,7 +259,7 @@ public class Ish {
                         </li>
                     </ul>
                 <h4>Technical Intern at Siemens AG</h4>
-                <h6>July 2019 - Present | Orlando, FL</h6>
+                <h6>September 2017 - March 2019 | Orlando, FL</h6>
                     <ul>
                         <li>
                             I coded back-end triggers and classes to automate data processing in the company’s Salesforce 
@@ -248,7 +283,7 @@ public class Ish {
                 </button>
                 <div class="collapse" id="extracurricular-list">
                     <h4>Wallbreakers Trainee Mentor</h4>
-                    <h6>October 2019 - Present</h6>
+                    <h6>October 2019 - March 2020</h6>
                     <ul>
                         <li>
                             Having been a previous trainee, I know how helpful Wallbreakers software engineering training program is. 
@@ -270,7 +305,7 @@ public class Ish {
                         </li>
                     </ul>
                     <h4>Member of the Society of Hispanic Professional Engineers (SHPE)</h4>
-                    <h6>June 2019 - Present</h6>
+                    <h6>June 2019 - May 2020</h6>
                     <ul>
                         <li>
                             I regularly attend and volunteer at extracurricular events such as workshops and community events to support 
@@ -294,10 +329,10 @@ public class Ish {
                         </li>
                     </ul>
                     <h4>Member of Upsilon Pi Epsilon (UPE) Computer Science Honor Society</h4>
-                    <h6>March 2019 - Present</h6>
+                    <h6>March 2019 - May 2020</h6>
                     <ul>
                         <li>
-                            I meet weekly with other club members to work on projects, solve coding problems, and mentor underclassmen.
+                            I met weekly with other club members to work on projects, solve coding problems, and mentor underclassmen.
                         </li>
                     </ul>
                     <h4>Co-Founder and Membership Coordinator for QLatinx</h4>
@@ -367,16 +402,19 @@ public class Ish {
                 <h1>Music</h1>
                 <p>I play piano and cover pop, video game, and indie rock songs. I typically 
                     arrange by ear and challenge myself to play more technically with each cover.</p>
-                <p><a href="https://www.youtube.com/channel/UCK7K27XYAxnjxVoMtlfU4sg">My YouTube channel</a> has videos of my piano covers.</p>
+                <p><a href="https://www.youtube.com/channel/UCK7K27XYAxnjxVoMtlfU4sg">My YouTube channel</a> has videos of my piano covers. 
+                    Check out these examples of my work!</p>
             </div>
             <div class="container">
                 <table class="with-images">
                     <tr>
                         <td class="w-25">
-                            <iframe id="iframe" max-width="800px" max-height="600px" src="https://www.youtube.com/embed/vUj93aqGcXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe id="iframe" max-width="800px" max-height="600px" src="https://www.youtube.com/embed/4Pk94JFtk1M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p>NASA by Ariana Grande</p>
                         </td>
                         <td class="w-25">
-                            <iframe id="iframe" max-width="800px" max-height="600px" src="https://www.youtube.com/embed/MJXdaq_4Tm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe id="iframe" max-width="800px" max-height="600px" src="https://www.youtube.com/embed/XAdOtyBy_TY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p>Subterranean Homesick Alien by Radiohead</p>
                         </td>
                     </tr>
                 </table>
@@ -387,7 +425,7 @@ public class Ish {
         <div class="row" id="art">
             <div class="container">
                 <h1>Art</h1>
-                <p>I love illustration and have done a few myself. I also really 
+                <p>I love illustration and have done some myself. I also really 
                     like to draw on my TI-83 calculator, whether that's portraits 
                     or typical pixel art.</p>
                 <p>My art can be found on <a href="https://ishfulthinking.tumblr.com/tagged/my-art">my Tumblr blog.</a></p>
@@ -436,14 +474,14 @@ public class Ish {
                     </li>
                 </ul>
                 <p>If you like my work so much you want to financially support me 
-                    as a broke college student, feel free to donate to <a href="https://www.paypal.com/paypalme/my/profile">my Paypal</a> 🙏🥺</p>
+                    as a broke new grad, feel free to donate to <a href="https://www.paypal.com/paypalme/my/profile">my Paypal</a> 🥺🙏</p>
             </div>
         </div>
 
         <!-- Footer -->
         <div class="row" id="footer">
             <p>
-                Ishmael Perez • Last edited 3 January 2020
+                Ishmael Perez • Last edited 5 June 2020
             </p>
         </div>
 
