@@ -130,8 +130,9 @@
         <div class="row odd" id="overview">
             <div class="container">
                 <h1>Overview</h1>
-                <p>Hi! I'm Ishmael, but you can call me Ish. I'm a new grad ('20) from Boston University 
-                    seeking full-time software engineering roles. I like people, places, and things.</p>
+                <p>Hi! I'm Ishmael, but you can call me Ish.</p>
+                <p>I'm a software engineer at Apple working on the Apple Pay and Wallet team, and I graduated from 
+                    Boston University in May 2020 with a BA in computer science. I like people, places, and things.</p>
                 <p>Here's a quick summary of my CV:</p>
                 <pre><code class="java">// It's wrong to treat people as objects, so I make sure to treat myself with class
 public class Ish {
@@ -145,6 +146,13 @@ public class Ish {
     }
 
     private class WorkExperience {
+        Job appleEngineer = new Job("Software Engineer, Apple Pay", "Apple");
+        appleEngineer.startDate = "September 2019";
+        appleEngineer.endDate = null;
+        appleEngineer.tasks = {
+            "Coding back-end services for Wallet in Java",
+            "The rest is top-secret!"
+        }
 
         Job sparkFellow = new Job("Innovation Fellow", "BU Spark! Lab");
         sparkFellow.startDate = "January 2020";
@@ -152,10 +160,7 @@ public class Ish {
         sparkFellow.tasks = {
             "Planned and researched mental healthcare and iOS development to create 
                 full-fledged iOS app for people with depression and bipolar disorder",
-            "Coded app in Swift using model-view-controller architecture; currently expanding 
-                functions of the app and integrating it to use cloud storage",
-            "Met with law clinic, pitched app to potential funders, performed weekly Agile 
-                sprints as scrum master with teammates and on my own"
+            "Coded app in Swift using model-view-controller architecture"
         };
         
 
@@ -163,12 +168,9 @@ public class Ish {
         driftInternship.startDate = "July 2019";
         driftInternship.endDate = "December 2019";
         driftInternship.tasks = {
-            "Developed prototype for Drift Video app on Android from using Kotlin in Android Studio,
-                setting foundation for reaching countless new customers who use Android",
-            "Created test suites for Drift's iOS app using Xcode's XCUITest framework
-                to catch bugs before releasing updates to production",
-            "Coded UI components including login and detail views in Swift while following model-view-controller 
-                architecture and connecting to existing back-end components"
+            "Developed prototype for Drift Video app on Android using Kotlin",
+            "Used XCUITest framework to write bug-catching test suites",
+            "Coded UI login and detail view elements in Swift and connected to existing back-end components"
         };
 
         Job siemensInternship = new Job("Technical Intern", "Siemens AG");
@@ -177,7 +179,7 @@ public class Ish {
         siemensInternship.tasks = {
             "Back end Apex development for process automation and data storage",
             "Front end Visualforce development for websites and forms used by Siemens teams",
-            "Maintenance of code quality by refactoring legacy code and creating robust test classes"
+            "Maintenance of code quality by creating robust test classes and refactoring legacy code"
         }
     }
 
@@ -195,24 +197,39 @@ public class Ish {
         <div class="row" id="experience">
             <div class="container">
                 <h1>Education</h1>
-                <p>I should start off with my schooling, since I spent a lot of money for the 
+                <p>I should start off with my schooling, since I spent a lot of money for this 
                     special piece of paper with my name and major on it.</p>
                 <h4>B.A. in Computer Science from Boston University</h4>
                 <h6>Graduated May 2020 | GPA: 3.1</h6>
                 <ul>
                     <li>
                         Completed coursework includes algorithm analysis, data structures, 
-                        software engineering, mobile app development, computer networks, 
-                        and artificial intelligence
+                        software engineering, mobile app development, computer networks, and AI
+                    </li>
+                    <li>
+                        Member of Upsilon Pi Epsilon computer science honor society and the Society of 
+                        Hispanic Professional Engineers (and recipient of 2019 SHPE Chevron Scholarship)
                     </li>
                 </ul>
 
 
 
                 <h1>Work Experience</h1>
-                <p>I hold a fellow ship and two internships under my belt and have coded in both the front-end and back-end:</p>
-                <h4>Spark! Innovation Continuing Fellow at BU Department of Computer Science</h4>
-                <h6>January 2020 - May 2020 | Boston, MA</h6>
+                <p>I'm currently a software engineer at Apple, and I previously held a fellowship and 
+                    two internships (one front-end, one back-end):</p>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#work-list" aria-expanded="false" aria-controls="collapseExample">
+                    Show/hide work history
+                </button>
+                <div class="collapse" id="work-list">
+                    <h4>Software Engineer at Apple</h4>
+                    <h6>September 2020 - Present | Cupertino, CA</h6>
+                    <ul>
+                        <li>I work on the Apple Pay & Wallet team doing back-end development in Java.</li>
+                        <li>I signed an NDA so I can't really mention much more :-)</li>
+                    </ul>
+
+                    <h4>Spark! Innovation Lab Continuing Fellow at BU Department of Computer Science</h4>
+                    <h6>January 2020 - May 2020 | Boston, MA</h6>
                     <ul>
                         <li>
                             I planned and built an iOS app called Forget-Me-Not for helping people with depression and 
@@ -228,13 +245,14 @@ public class Ish {
                         </li>
                         <li>
                             I coded the app itself in Swift and using a model-view-controller (MVC) architecture.
-                            I applied to funding opportunities including the Idea Cup (for which we won 3rd place) and 
-                            New Venture Competition (for which I was a semifinalist) held by BU's BUild Lab. As a health-based 
+                            I applied to funding opportunities including BU's BUild Lab Idea Cup (for which we won 3rd place) 
+                            and New Venture Competition (for which I was a semifinalist). As a health-based 
                             app, I also met with the BU and MIT startup law clinic to guarantee my app was compliant with HIPAA.
                         </li>
                     </ul>
-                <h4>Software Engineer Intern at Drift.com</h4>
-                <h6>July 2019 - December 2019 | Boston, MA</h6>
+
+                    <h4>Software Engineer Intern at Drift.com</h4>
+                    <h6>July 2019 - December 2019 | Boston, MA</h6>
                     <ul>
                         <li>
                             I built the prototype for the Drift Video app on Android using Kotlin in Android Studio. 
@@ -254,12 +272,13 @@ public class Ish {
                         </li>
                         <li>
                             I finished my internship coding front end components like the login and video detail views in 
-                            Swift. I coded from scratch for some and for others, I edited existing views to fit new UI designs. 
-                            All components were coded using the model-view-controller architecture and the RxSwift library.
+                            Swift. I coded from scratch for some and edited other existing views to fit new UI designs. 
+                            All components were coded using the MVC architecture and the RxSwift library.
                         </li>
                     </ul>
-                <h4>Technical Intern at Siemens AG</h4>
-                <h6>September 2017 - March 2019 | Orlando, FL</h6>
+
+                    <h4>Technical Intern at Siemens AG</h4>
+                    <h6>September 2017 - March 2019 | Orlando, FL</h6>
                     <ul>
                         <li>
                             I coded back-end triggers and classes to automate data processing in the company’s Salesforce 
@@ -273,71 +292,58 @@ public class Ish {
                             language and modified the existing back end code to filter invalid data and work more efficiently.
                         </li>
                     </ul>
+                </div>
 
 
 
-                <h1>Extracurriculars</h1>
+                <h1>Community</h1>
                 <p>I also do things outside of school and work, I promise! Here are some of the things I do as extracurriculars:</p>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#extracurricular-list" aria-expanded="false" aria-controls="collapseExample">
-                    Show/hide extracurricular activities
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#community-list" aria-expanded="false" aria-controls="collapseExample">
+                    Show/hide community activities
                 </button>
-                <div class="collapse" id="extracurricular-list">
+                <div class="collapse" id="community-list">
+                    <h4>Out in Tech Member and Mentor</h4>
+                    <h6>January 2020 - Present | Boston, MA / Remote</h6>
+                    <ul>
+                        <li>
+                            I've attended several trainings and panels about creating a more inclusive workspace, and have also 
+                            participated in volunteer events to develop technological resources for ally organizations.
+                        </li>
+                        <li>
+                            Participated in July 2020 Digital Corps website development sprint, designing and building a website for 
+                            a nonprofit ally organization by using built-in Wordpress tools alongside custom HTML and CSS elements.
+                        </li>
+                        <li>
+                            Currently serve as a mentor for a junior computer science student as part of OiT's 8-week Digital Mentorship 
+                            series. In this role, I meet with the student weekly to help them complete a project and develop technical skills.
+                        </li>
+                    </ul>
+
                     <h4>Wallbreakers Trainee Mentor</h4>
-                    <h6>October 2019 - March 2020</h6>
+                    <h6>October 2019 - March 2020 | Remote</h6>
                     <ul>
                         <li>
-                            Having been a previous trainee, I know how helpful Wallbreakers software engineering training program is. 
-                            I hold weekly online office hours where I guide students through Leetcode problems to strengthen their grasps on 
-                            algorithm analysis and data structures, both of which relate directly to their future careers in software engineering.
+                            I completed the Wallbreakers training program from April to June 2019 and loved it! During my time as a trainee, 
+                            I <a href="https://github.com/ishfulthinking/LeetCode-problems">shared my answers</a> to help other students debug 
+                            their code and <a href="https://docs.google.com/document/d/1clBU6vYIjnBrMDwNJrcUR0yY4bVTQXKBk45s9NBrvNU/edit?usp=sharing">created a guide</a> 
+                            to problem submission via Git for newbies.
                         </li>
                         <li>
-                            I do resume reviews whenever needed, especially before students are referred to companies so they put their 
-                            best foot forward when applying. I also conduct mock interviews with these students to strengthen both their 
-                            technical and soft skills.
+                            Having been a previous trainee at Wallbreakers and at Facebook Cambridge's Above & Beyond Computer Science program, I 
+                            know how helpful these trainings can be and wanted to give back by helping teach the incoming Wallbreakers class.
+                        </li> 
+                            I held weekly online office hours where I guided students through Leetcode problems to strengthen their grasps on 
+                            algorithm analysis and data structures, both of which related directly to their future careers in software engineering.
+                        </li>
+                        <li>
+                            I did resume reviews upon request, especially before students were referred to companies by the program coordinators. 
+                            I also conducted mock interviews with these students to strengthen both their technical and soft skills.
                         </li>
                     </ul>
-                    <h4>Facebook Above & Beyond Computer Science Program Trainee</h4>
-                    <h6>September 2019 - November 2019</h6>
-                    <ul>
-                        <li>
-                            I complete coding assignment sets and visit the Facebook offices weekly to strengthen my coding and 
-                            review skills related to acing coding interview.
-                        </li>
-                    </ul>
-                    <h4>Member of the Society of Hispanic Professional Engineers (SHPE)</h4>
-                    <h6>June 2019 - May 2020</h6>
-                    <ul>
-                        <li>
-                            I regularly attend and volunteer at extracurricular events such as workshops and community events to support 
-                            the communities that are underrepresented in STEM, especially the Hispanic/Latinx community.
-                        </li>
-                        <li>
-                            I was one of fewer than 10 students who received the SHPE Chevron scholarship this 2019-2020 academic year!
-                        </li>
-                    </ul>
-                    <h4>Wallbreakers Software Engineering Program Trainee</h4>
-                    <h6>April 2019 - June 2019</h6>
-                    <ul>
-                        <li>
-                            I completed <a href="https://github.com/ishfulthinking/LeetCode-problems">weekly coding problem sets</a> to 
-                            strengthen my skills in runtime analysis, hash maps, graphs, linked lists, trees, etc... you name it, we practiced it!
-                        </li>
-                        <li>
-                            I regularly participated in homework and career-related discussions to help other students, especially students new to CS. 
-                            I also created a <a href="https://docs.google.com/document/d/1clBU6vYIjnBrMDwNJrcUR0yY4bVTQXKBk45s9NBrvNU/edit?usp=sharing">
-                            guide to help them get acquainted with Git</a> and submit their assignments to Github for instructor review.
-                        </li>
-                    </ul>
-                    <h4>Member of Upsilon Pi Epsilon (UPE) Computer Science Honor Society</h4>
-                    <h6>March 2019 - May 2020</h6>
-                    <ul>
-                        <li>
-                            I met weekly with other club members to work on projects, solve coding problems, and mentor underclassmen.
-                        </li>
-                    </ul>
+
                     <h4>Co-Founder and Membership Coordinator for QLatinx</h4>
                     <h6>July 2016 - October 2018</h6>
-                    <p>OK, this one isn't CS-related, but it's something I'm very proud of.</p>
+                    <p>OK, this one isn't CS-related, but it's something I'm very proud of!</p>
                     <ul>
                         <li>
                             After the Pulse Nightclub tragedy in June of 2016, I met with community members to develop ways to support the 
@@ -473,15 +479,13 @@ public class Ish {
                         <strong>Github: </strong><a href="https://github.com/ishfulthinking">https://github.com/ishfulthinking</a>
                     </li>
                 </ul>
-                <p>If you like my work so much you want to financially support me 
-                    as a broke new grad, feel free to donate to <a href="https://www.paypal.com/paypalme/my/profile">my Paypal</a> 🥺🙏</p>
             </div>
         </div>
 
         <!-- Footer -->
         <div class="row" id="footer">
             <p>
-                Ishmael Perez • Last edited 5 June 2020
+                Ishmael Perez • Last edited 1 October 2020
             </p>
         </div>
 
