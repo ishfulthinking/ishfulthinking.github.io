@@ -1,4 +1,4 @@
-@font-face { font-family: Grotesk; src: url('files/HKGrotesk-Regular.otf'); }
+@font-face { font-family: Grotesk; src: url('../files/HKGrotesk-Regular.otf'); }
 
 html {
     font-family: 'HK Grotesk', sans-serif;
@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    background-image: url(media/confetti.jpg);
+    background-image: url(../media/confetti.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
