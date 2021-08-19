@@ -1,8 +1,8 @@
-@font-face { font-family: Grotesk; src: url('../files/HKGrotesk-Regular.otf'); }
-@font-face { font-family: Anonymous; src: url('../files/Anonymous-Pro.ttf'); }
+@font-face { font-family: Nunito; src: url('files/Nunito-Regular.ttf'); }
+@font-face { font-family: NunitoBlack; src: url('files/Nunito-Bold.ttf'); }
 
 body {
-    font-family: Grotesk, sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 1em;
     color: white;
     background-color: #088BFF;
@@ -13,6 +13,7 @@ p {
     text-align: center;
 }
 h1 {
+    font-family: 'NunitoBlack', sans-serif;
 	font-weight: bold;
     font-size: 4em;
     text-align: center;
